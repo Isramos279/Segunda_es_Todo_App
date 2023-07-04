@@ -35,27 +35,7 @@ const Watson = () => {
   return (
     <TabWatson.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
 
-          if (route.name === "ManejoActivos") {
-            iconName = "list-alt";
-          } else if (route.name === "TabPedidosAdmin") {
-            iconName = "list-alt";
-          } else if (route.name === "Clientes") {
-            iconName = "users";
-          }
-
-          // You can return any component that you like here!
-          return (
-            <Icon
-              name={iconName}
-              size={size}
-              color={color}
-              type="font-awesome"
-            />
-          );
-        },
         tabBarActiveTintColor: theme.colors.morado,
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
@@ -73,9 +53,84 @@ const Watson = () => {
         component={ManejoActivos}
         options={{
           headerShown: false,
-          title: "Donaciones",
+          title: "Menu",
+          tabBarIcon: () => {
+            return <Icon
+              name='menu'
+              size={24}
+              color='black'
+              type='Entypo'
+            />
+          }
         }}
       />
+      <TabWatson.Screen
+        name="ManejoActivos1"
+        component={ManejoActivos}
+        options={{
+          headerShown: false,
+          title: "Carrito",
+          tabBarIcon: () => {
+            return <Icon
+              name='shoppingcart'
+              size={24}
+              color='black'
+              type='ant-design'
+            />
+          }
+        }}
+      />
+      <TabWatson.Screen
+        name="ManejoActivos2"
+        component={ManejoActivos}
+        options={{
+          headerShown: false,
+          title: "Home",
+          tabBarIcon: () => {
+            return <Icon
+              name='home'
+              size={24}
+              color='black'
+              type='Entypo'
+            />
+          }
+        }}
+      />
+      <TabWatson.Screen
+        name="ManejoActivos3"
+        component={ManejoActivos}
+        options={{
+          headerShown: false,
+          title: "canjear",
+          tabBarIcon: () => {
+            return <Icon
+              name='gift'
+              size={24}
+              color='black'
+              type='ant-design'
+            />
+          }
+        }}
+      />
+
+
+      <TabWatson.Screen
+        name="ManejoActivos4"
+        component={ManejoActivos}
+        options={{
+          headerShown: false,
+          title: "usuario",
+          tabBarIcon: () => {
+            return <Icon
+              name='user'
+              size={24}
+              color='black'
+              type='ant-design'
+            />
+          }
+        }}
+      />
+
     </TabWatson.Navigator>
   );
 };
