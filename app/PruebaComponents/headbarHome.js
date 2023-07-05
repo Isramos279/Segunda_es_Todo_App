@@ -42,10 +42,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     icon: {
-        marginTop: 14,
+        
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     img: {
-        marginTop: 10,
+
+        alignItems: 'center',
+        justifyContent: 'center',
+        
     },
 });
 
