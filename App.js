@@ -146,7 +146,6 @@ const ManejoActivos = () => {
           headerShown: false,
         }}
       />
-
       <StackManjActivos.Screen
         name="AniadirActivo"
         options={{
