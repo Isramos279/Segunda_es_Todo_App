@@ -1,8 +1,8 @@
-import logo_blanco from '../../assets/moderna/Logotipo-blaco.png'
-import logo_gris from '../../assets/moderna/Logotipo-escala-de-grises.png'
+import logo_blanco from '../../assets/Logo_white.png'
+import logo_gris from '../../assets/Logo_gray.png'
 
-const logos={
-    blanco:logo_blanco,
-    gris: logo_gris
+export const logos={
+    blanco: logo_blanco,
+    gris: logo_gris,
 }
 export default logos
