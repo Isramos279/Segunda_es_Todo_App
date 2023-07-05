@@ -13,13 +13,13 @@ import { doc, setDoc,addDoc,collection ,getDoc} from "firebase/firestore";
 import { Alert } from "react-native";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB91r-BJPhqsjUhGeJiXuPVzFbSGBjkzFc",
-    authDomain: "servidores-fbed3.firebaseapp.com",
-    projectId: "servidores-fbed3",
-    storageBucket: "servidores-fbed3.appspot.com",
-    messagingSenderId: "760822612822",
-    appId: "1:760822612822:web:48a67340ef9ad0b8a20cf7",
-    measurementId: "G-KF1Y19507P"
+    apiKey: "AIzaSyD3tzUWpDwEMzeBnH0Zc1Z4_NFV_noTyjc",
+    authDomain: "segundaestodoapp.firebaseapp.com",
+    projectId: "segundaestodoapp",
+    storageBucket: "segundaestodoapp.appspot.com",
+    messagingSenderId: "917966498579",
+    appId: "1:917966498579:web:e7c247c1f79709056048e6",
+    measurementId: "G-NMH9NR2JMD"
   
 };
 export const loadConfiguration=()=>{
