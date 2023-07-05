@@ -1,0 +1,20 @@
+import React, { useEffect, useState } from "react";
+import { View, Text } from "react-native";
+import { Inter_400Regular } from "@expo-google-fonts/inter";
+import { Itim_400Regular } from "@expo-google-fonts/itim";
+import { useFonts } from "expo-font";
+
+export const FontsLoader = ({ children }) => {
+  let [fontsLoaded] = useFonts({
+    Itim_400Regular,
+    Inter_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    // Fuentes no cargadas, mostrar componente de carga
+    return null;
+  } else {
+    // Fuentes cargadas, renderizar el contenido
+    return <>{children}</>;
+  }
+};
