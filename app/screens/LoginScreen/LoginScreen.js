@@ -97,29 +97,41 @@ export const LoginForm = ({ navigation }) => {
             alignContent: "center",
             textAlign: "center",
             fontWeight: "bold",
-            
+            fontSize: 30,
+            // backgroundColor:"blue",
+            justifyContent: "flex-start",
           }}
         >
           {" "}
-          INICIO DE SESION
+          Iniciar Sesión
         </Text>
 
-        <View style={{paddingTop:"30%"}}>
+        <View style={{ paddingTop: "8%"}}>
           <TextInput
-            label="Email"
+            label="¿A dónde te llegan las notas? "
             value={usuario}
             onChangeText={setUsuario}
             mode="outlined"
+            placeholder="Correo"
+            autoFocus={true}
+            outlineColor="#666666"
+            activeOutlineColor="#666666"
           />
           <HelperText type="error" visible={hasErrorcorreo}>
             {errorCorreo}
           </HelperText>
 
           <TextInput
-            label="Contraseña"
+            label="¿La que no le compartes ni a la novia"
+            placeholder="Contraseña"
             value={contraseña}
+            style={{ paddingHorizontal: 16 }}
             onChangeText={setcontraseña}
             mode="outlined"
+            outlineColor="#666666"
+            activeOutlineColor="#666666"
+            textColor="#e0e0e0"
+            autoFocus={true}
             secureTextEntry={cambiarOjo}
             right={
               cambiarOjo ? (
@@ -141,52 +153,96 @@ export const LoginForm = ({ navigation }) => {
               )
             }
           />
-          <HelperText type="error" visible={hasErrorcontraseña}>
-            {errorPassword}
-          </HelperText>
-
-          <Button
-            title="Iniciar Sesion"
-            onPress={ValidarLogin}
-            buttonStyle={{
-              borderRadius: 10,
-              backgroundColor: theme.colors.morado,
-            }}
-            containerStyle={{
-              width: 200,
-              paddingTop: 40,
-            }}
-          />
-          {/* <View style={{ flexDirection: "row" }}>
-          <Text>Recupera tu cuenta.</Text>
-
-          <TouchableHighlight
-            activeOpacity={0.6}
-            underlayColor="#DDDDDD"
-            onPress={() => {
-              navigation.navigate("ReseteoNav");
-            }}
-          >
-            <View>
-              <Text style={styles.titulo}>Click aqui</Text>
+          {hasErrorcontraseña ? (
+            <HelperText type="error" visible={hasErrorcontraseña}>
+              {errorPassword}
+            </HelperText>
+          ) : null}
+          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
+            <TouchableHighlight
+              activeOpacity={0.6}
+              underlayColor="#DDDDDD"
+              onPress={() => {
+                navigation.navigate("ReseteoNav");
+              }}
+            >
+              <View>
+                <Text style={{ color: "#F32409" }}>
+                  ¿Olvidaste tu contraseña?
+                </Text>
+              </View>
+            </TouchableHighlight>
+          </View>
+          <View style={{ alignSelf: "center" }}>
+            <Button
+              title="Iniciar Sesion"
+              onPress={ValidarLogin}
+              buttonStyle={{
+                borderRadius: 10,
+                backgroundColor: "#2e2e2e",
+              }}
+              containerStyle={{
+                width: 200,
+                paddingTop: 40,
+              }}
+            />
+            <Text
+              style={{
+                alignContent: "center",
+                textAlign: "center",
+                fontWeight: "bold",
+                // fontSize: 30,
+                // backgroundColor:"blue",
+                justifyContent: "flex-start",
+                marginTop: 20,
+              }}
+            >
+              {" "}
+              O ingresa con
+            </Text>
+            <View style={{ flexDirection: "row", justifyContent:"center", marginTop:20}}>
+              <Image
+                source={require("../../../assets/GoogleLoginLogo.png")}
+                style={{ width: 30, height: 30 }}
+              />
+               <Image
+                source={require("../../../assets/IncognitoLoginLogo.png")}
+                style={{ width: 30, height: 30 }}
+              />
             </View>
-          </TouchableHighlight>
-        </View>
-        <Button
-          title="Crear Cuenta"
-          onPress={() => {
-            PushNotification.localNotification({
-              title: "Mi Notificación",
-              message: "Hola Mundo!",
-            });
-            navigation.navigate("RegistrarNav");
-          }}
-          buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.jade }}
-          containerStyle={{
-            width: 200,
-            paddingTop: 40,
-          }}
-        /> */}
+            <Text
+              style={{
+                alignContent: "center",
+                textAlign: "center",
+                fontWeight: "bold",
+                // fontSize: 30,
+                // backgroundColor:"blue",
+                justifyContent: "flex-start",
+                marginTop:20
+
+               
+              }}
+            >
+              {" "}
+              ¿No tienes cuenta aún?
+            </Text>
+            <Text
+              style={{
+                alignContent: "center",
+                textAlign: "center",
+                fontWeight: "bold",
+                // fontSize: 30,
+                // backgroundColor:"#f32409",
+                justifyContent: "flex-start",
+                color:"#f32409",
+                marginTop:25
+               
+              }}
+            >
+              {" "}
+              Regístrate
+            </Text>
+          </View>
         </View>
 
         {/*ffin del  view body */}
@@ -212,9 +268,9 @@ const styles = StyleSheet.create({
     padding: 100,
   },
   cajaCuerpo: {
-    //backgroundColor: 'brown',
+    backgroundColor: "brown",
     flex: 10,
-    paddingTop: "20%",
+    paddingTop: "10%",
     // alignItems: "stretch",
     paddingHorizontal: 30,
     justifyContent: "flex-start",
