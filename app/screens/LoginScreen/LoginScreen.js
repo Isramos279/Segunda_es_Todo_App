@@ -80,7 +80,7 @@ export const LoginForm = ({ navigation }) => {
   const ValidarLogin = async () => {
     validaciones();
 
-    // Alert.alert("Vlaidando")
+    Alert.alert("Vlaidando")
   };
 
   return (
@@ -226,6 +226,13 @@ export const LoginForm = ({ navigation }) => {
               {" "}
               ¿No tienes cuenta aún?
             </Text>
+            <TouchableHighlight
+              activeOpacity={0.6}
+              underlayColor="#DDDDDD"
+              onPress={() => {
+                navigation.navigate("RegistrarNav");
+              }}
+            >
             <Text
               style={{
                 alignContent: "center",
@@ -242,6 +249,7 @@ export const LoginForm = ({ navigation }) => {
               {" "}
               Regístrate
             </Text>
+            </TouchableHighlight>
           </View>
         </View>
 
