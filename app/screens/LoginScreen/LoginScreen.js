@@ -17,7 +17,7 @@ import StyledText from "../../theme/StyledText";
 import { HelperText, TextInput } from "react-native-paper";
 import theme from "../../theme/theme";
 import { validateEmail } from "../../commons/validations";
-import Logotipo from "../../../assets/HermesLogo.jpg";
+import Logotipo from "../../../assets/HermesLogo.png";
 import PushNotification from "react-native-push-notification";
 
 export const LoginForm = ({ navigation }) => {
@@ -85,124 +85,79 @@ export const LoginForm = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Image
-              style={[
-                styles.logo,
-                {
-                  height: 100,
-                  width: Dimensions.get("window").width,
-                  padding: 40,
-                },
-              ]}
-              source={Logotipo}
-            />
-            {hasErrorcorreo ? (
-              <StyledText subtitle>{errorCorreo}</StyledText>
-            ) : hasErrorcontraseña ? (
-              <StyledText subtitle>{errorPassword}</StyledText>
-            ) : hasErrorcontraseña2 ? (
-              <StyledText subtitle>{contraseña2}</StyledText>
-            ) : (
-              <StyledText subtitle>Ingreso Exitoso</StyledText>
-            )}
-
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              {hasErrorcorreo ? (
-                <StyledText white body>
-                  Cerrar
-                </StyledText>
-              ) : hasErrorcontraseña ? (
-                <StyledText body white>
-                  Cerrar
-                </StyledText>
-              ) : hasErrorcontraseña2 ? (
-                <StyledText body white>
-                  Cerrar
-                </StyledText>
-              ) : (
-                <StyledText body white>
-                  Continuar
-                </StyledText>
-              )}
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
       <View style={styles.cajaCabecera}>
         <Image
-          source={require("../../../assets/HermesLogo.jpg")}
+          source={require("../../../assets/logoWhiteSi.png")}
           style={{ width: 500, height: 160, margin: 30, resizeMode: "contain" }}
         />
       </View>
       <View style={styles.cajaCuerpo}>
-        <TextInput
-          label="Email"
-          value={usuario}
-          onChangeText={setUsuario}
-          mode="outlined"
-        />
-        <HelperText type="error" visible={hasErrorcorreo}>
-          {errorCorreo}
-        </HelperText>
+        <Text
+          style={{
+            alignContent: "center",
+            textAlign: "center",
+            fontWeight: "bold",
+            
+          }}
+        >
+          {" "}
+          INICIO DE SESION
+        </Text>
 
-        <TextInput
-          label="Contraseña"
-          value={contraseña}
-          onChangeText={setcontraseña}
-          mode="outlined"
-          secureTextEntry={cambiarOjo}
-          right={
-            cambiarOjo ? (
-              <TextInput.Icon
-                icon="eye"
-                onPress={() => {
-                  setCambiarOjo(!cambiarOjo);
-                  return false;
-                }}
-              />
-            ) : (
-              <TextInput.Icon
-                icon="eye"
-                onPress={() => {
-                  setCambiarOjo(!cambiarOjo);
-                  return false;
-                }}
-              />
-            )
-          }
-        />
-        <HelperText type="error" visible={hasErrorcontraseña}>
-          {errorPassword}
-        </HelperText>
-      </View>
-      <View style={styles.cajaBotones}>
-        <Button
-          title="Iniciar Sesion"
-          onPress={ValidarLogin}
-          buttonStyle={{
-            borderRadius: 10,
-            backgroundColor: theme.colors.morado,
-          }}
-          containerStyle={{
-            width: 200,
-            paddingTop: 40,
-          }}
-        />
-        <View style={{ flexDirection: "row" }}>
+        <View style={{paddingTop:"30%"}}>
+          <TextInput
+            label="Email"
+            value={usuario}
+            onChangeText={setUsuario}
+            mode="outlined"
+          />
+          <HelperText type="error" visible={hasErrorcorreo}>
+            {errorCorreo}
+          </HelperText>
+
+          <TextInput
+            label="Contraseña"
+            value={contraseña}
+            onChangeText={setcontraseña}
+            mode="outlined"
+            secureTextEntry={cambiarOjo}
+            right={
+              cambiarOjo ? (
+                <TextInput.Icon
+                  icon="eye"
+                  onPress={() => {
+                    setCambiarOjo(!cambiarOjo);
+                    return false;
+                  }}
+                />
+              ) : (
+                <TextInput.Icon
+                  icon="eye"
+                  onPress={() => {
+                    setCambiarOjo(!cambiarOjo);
+                    return false;
+                  }}
+                />
+              )
+            }
+          />
+          <HelperText type="error" visible={hasErrorcontraseña}>
+            {errorPassword}
+          </HelperText>
+
+          <Button
+            title="Iniciar Sesion"
+            onPress={ValidarLogin}
+            buttonStyle={{
+              borderRadius: 10,
+              backgroundColor: theme.colors.morado,
+            }}
+            containerStyle={{
+              width: 200,
+              paddingTop: 40,
+            }}
+          />
+          {/* <View style={{ flexDirection: "row" }}>
           <Text>Recupera tu cuenta.</Text>
 
           <TouchableHighlight
@@ -231,7 +186,10 @@ export const LoginForm = ({ navigation }) => {
             width: 200,
             paddingTop: 40,
           }}
-        />
+        /> */}
+        </View>
+
+        {/*ffin del  view body */}
       </View>
     </View>
   );
@@ -240,36 +198,38 @@ export const LoginForm = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffff",
+    backgroundColor: "#2e2e2e",
     //alignItems: 'center',
+    alignItems: "center",
     justifyContent: "center",
-    padding: 10,
+    // padding: 10,
   },
   cajaCabecera: {
     //backgroundColor: 'cyan',
     flex: 2,
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     padding: 100,
   },
   cajaCuerpo: {
     //backgroundColor: 'brown',
-    flex: 4,
-    alignItems: "stretch",
+    flex: 10,
+    paddingTop: "20%",
+    // alignItems: "stretch",
     paddingHorizontal: 30,
     justifyContent: "flex-start",
+
+    borderTopStartRadius: 15,
+    borderTopEndRadius: 15,
+    backgroundColor: "#ffffff",
+    width: theme.dimensions.maxWidth,
   },
   titulo: {
     fontSize: 16,
     fontWeight: "bold",
     paddingBottom: 39,
   },
-  cajaBotones: {
-    paddingBottom: 10,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    flex: 4,
-  },
+
   txtinput: {
     borderWidth: 1,
     paddingVertical: 10,

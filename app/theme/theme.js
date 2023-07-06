@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 const theme = {
     colors: {
         primary: 'blue',
@@ -19,6 +21,10 @@ const theme = {
         bold: '700',
         bolder: '900',
         normal: 'normal'
-    }
+    },
+     dimensions: {
+        maxWidth: Dimensions.get("window").width,
+        maxHeight: Dimensions.get("window").height,
+      },
 }
 export default theme
