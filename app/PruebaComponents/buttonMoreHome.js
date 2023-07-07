@@ -10,12 +10,12 @@ export const ButtonMore = () => {
                 title="Ver mas"
                 buttonStyle={{
                     backgroundColor: '#F25B0C',
-                    borderWidth: 2,
+                    borderWidth: 10,
                     borderColor: 'white',
                     borderRadius: 30,
                 }}
                 containerStyle={{
-                    width: 120,
+                    width: 110,
                     marginHorizontal: 0,
                     marginVertical: 0,
 

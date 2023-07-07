@@ -50,7 +50,7 @@ export const CardHome = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 165,
+        width: 175,
         backgroundColor: '#FFF',
         borderRadius: 5,
     },
