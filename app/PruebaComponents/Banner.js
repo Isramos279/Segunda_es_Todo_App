@@ -5,7 +5,7 @@ export const Banner =() =>{
     let screen = Dimensions.get('window');
     let width = screen.width;
 
-    let bannerWith = width * 0.95;
+    let bannerWith = width * 0.93;
 
     const images = [
         { id: 1, source: require('../../img/banner.png') },
@@ -15,7 +15,7 @@ export const Banner =() =>{
       const renderItem = ({ item }) => (
         <Image
           source={item.source}
-          style={{ width: bannerWith, height: 150, marginHorizontal: 10, borderRadius: 15}}
+          style={{ width: bannerWith, height: 150, marginRight: 5,borderRadius: 15}}
           resizeMode="cover"
         />
       );

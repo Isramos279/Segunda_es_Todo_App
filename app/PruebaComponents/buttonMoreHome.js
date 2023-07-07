@@ -16,8 +16,8 @@ export const ButtonMore = () => {
                 }}
                 containerStyle={{
                     width: 120,
-                    marginHorizontal: 10,
-                    marginVertical: 5,
+                    marginHorizontal: 0,
+                    marginVertical: 0,
 
                 }}
                 titleStyle={{ fontWeight: 'bold' }}

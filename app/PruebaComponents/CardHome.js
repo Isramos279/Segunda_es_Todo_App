@@ -11,7 +11,7 @@ export const CardHome = () => {
     let height = screen.height;
 
     let cardHeight = height * 0.277
-    let cardWidth = width * 0.45
+    let cardWidth = width * 0.44
 
     let imgHeight = height * 0.15
     let imgWidth = width * 0.45
@@ -50,8 +50,7 @@ export const CardHome = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 179,
-        height: 150,
+        width: 165,
         backgroundColor: '#FFF',
         borderRadius: 5,
     },
