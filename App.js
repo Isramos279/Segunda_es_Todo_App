@@ -61,7 +61,7 @@ const Watson = () => {
         }}
       />
       <TabWatson.Screen
-        name="ManejoActivos1"
+        name="ManejoActivos11"
         component={ManejoActivos}
         options={{
           headerShown: false,
