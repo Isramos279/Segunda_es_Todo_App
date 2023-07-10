@@ -47,7 +47,7 @@ export const ReseteoForm = ({ navigation }) => {
             <Button
                 title='Resetear Contraseña'
                 onPress={Reseteo}
-                buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.jade }}
+                buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.redSegunda }}
                 containerStyle={{
                     width: 200,
                     paddingTop: 40

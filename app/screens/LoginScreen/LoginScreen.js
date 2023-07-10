@@ -197,7 +197,7 @@ export const LoginForm = ({ navigation }) => {
           onPress={ValidarLogin}
           buttonStyle={{
             borderRadius: 10,
-            backgroundColor: theme.colors.morado,
+            backgroundColor: theme.colors.greySegunda,
             fontFamily: "Itim_400Regular",
           }}
           containerStyle={{
@@ -225,7 +225,7 @@ export const LoginForm = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("RegistrarNav");
           }}
-          buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.jade }}
+          buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.blackSegunda}}
           containerStyle={{
             width: 200,
             paddingTop: 40,

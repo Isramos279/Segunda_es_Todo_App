@@ -1,148 +1,136 @@
-import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-//import { Home } from './app/screens/HomeScreen'
-//import { Pedidos } from './app/screens/PedidosScreen';
-import { loadConfiguration } from "./app/utils/FirebaseConfig";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Icon, Button } from "@rneui/base";
+import { StatusBar } from "expo-status-bar";
+//Import de screens
 import { LoginForm } from "./app/screens/LoginScreen/LoginScreen";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState } from "react";
 import { Registrar } from "./app/screens/LoginScreen/RegistrarUsuario";
 import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Icon } from "@rneui/base";
-
+import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
 import theme from "./app/theme/theme";
+//Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
-import { ListaPedidosNoProcesados } from "./app/screens/TiposPedidoScreen/PedidosNoProcesadosScreen";
-import { ListaPedidosProcesados } from "./app/screens/TiposPedidoScreen/PedidosProcesadosScreen";
+//Firebase
 import { doc, getDoc } from "firebase/firestore";
-/*WATSON IMPORTACIONES */
-import { AniadirActivos } from "./app/screens/SeguridadInformatica/AgregarActivoScreen";
-import { ListaActivo } from "./app/screens/SeguridadInformatica/ListaActivosScreen";
-import { DetalleActivo } from "./app/screens/SeguridadInformatica/DetalleActivo";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { loadConfiguration } from "./app/utils/FirebaseConfig";
+//Importaciones de fuente
 import { FontsLoader } from "./app/Components/FontsLoader";
+
 const StackManjActivos = createNativeStackNavigator();
-const StackMoProd = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
-const StackClient = createNativeStackNavigator();
-const StackerPedidos = createNativeStackNavigator();
 
-const Tab = createBottomTabNavigator();
-const TabWatson = createBottomTabNavigator();
+const TabBar = createBottomTabNavigator();
 
-const Watson = () => {
+const BarNavigator = () => {
   return (
-    <TabWatson.Navigator
+    <TabBar.Navigator
       screenOptions={({ route }) => ({
-        tabBarActiveTintColor: theme.colors.morado,
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: theme.colors.orangeSegunda,
+        tabBarInactiveTintColor: theme.colors.greySegunda,
         tabBarStyle: {
-          // position: 'absolute',
-          backgroundColor: "#FBFBFF",
+          backgroundColor: theme.colors.blackSegunda,
           height: 60,
         },
         tabBarHideOnKeyboard: true,
         headerShown: false,
-        // tabBarShowLabel: false,
       })}
     >
-      <TabWatson.Screen
+      <TabBar.Screen
         name="ManejoActivos"
-        component={ManejoActivos}
+        component={ComingSoon}
         options={{
           headerShown: false,
           title: "Menu",
-          tabBarIcon: () => {
-            return <Icon name="menu" size={24} color="black" type="Entypo" />;
+          tabBarIcon: ({color}) => {
+            return <Icon name="menu" size={24} color={color} type="Entypo" />;
           },
         }}
       />
-      <TabWatson.Screen
+      <TabBar.Screen
         name="ManejoActivos11"
-        component={ManejoActivos}
+        component={ComingSoon}
         options={{
           headerShown: false,
           title: "Carrito",
           tabBarIcon: () => {
-            return (
-              <Icon
-                name="shoppingcart"
-                size={24}
-                color="black"
-                type="ant-design"
-              />
-            );
+            return <Icon name="shoppingcart" size={24} color={theme.colors.orangeSegunda} type="ant-design" />;
           },
         }}
       />
-      <TabWatson.Screen
+      <TabBar.Screen
         name="ManejoActivos2"
-        component={ManejoActivos}
+        component={ComingSoon}
         options={{
           headerShown: false,
           title: "Home",
           tabBarIcon: () => {
-            return <Icon name="home" size={24} color="black" type="Entypo" />;
+            return <Icon name="home" size={24} color={theme.colors.orangeSegunda} type="Entypo" />;
           },
         }}
       />
-      <TabWatson.Screen
+      <TabBar.Screen
         name="ManejoActivos3"
-        component={ManejoActivos}
+        component={ComingSoon}
         options={{
           headerShown: false,
           title: "canjear",
           tabBarIcon: () => {
             return (
-              <Icon name="gift" size={24} color="black" type="ant-design" />
+              <Icon name="gift" size={24} color={theme.colors.orangeSegunda} type="ant-design" />
             );
           },
         }}
       />
 
-      <TabWatson.Screen
+      <TabBar.Screen
         name="ManejoActivos4"
-        component={ManejoActivos}
+        component={ComingSoon}
         options={{
           headerShown: false,
           title: "usuario",
           tabBarIcon: () => {
             return (
-              <Icon name="user" size={24} color="black" type="ant-design" />
+              <Icon name="user" size={24} color={theme.colors.orangeSegunda} type="ant-design" />
             );
           },
         }}
       />
-    </TabWatson.Navigator>
+    </TabBar.Navigator>
   );
 };
 
-const ManejoActivos = () => {
+const ComingSoon = () => {
   return (
     <StackManjActivos.Navigator>
       <StackManjActivos.Screen
-        name="ListaActivos"
-        component={ListaActivo}
+        name="ComingSoon"
+        component={()=>{
+          return(<View style={styles.container}>
+              <Text style={styles.texto}>Screen in process</Text>
+              <Button
+                title="Cerrar sesion"
+                onPress={cerrarSesion}
+                buttonStyle={{
+                  borderRadius: 10,
+                  backgroundColor: theme.colors.greySegunda,
+                  fontFamily: "Itim_400Regular",
+                }}
+                containerStyle={{
+                  width: 200,
+                  paddingTop: 40,
+                  fontFamily: "Itim_400Regular",
+                }}
+              />
+            </View>);
+        }}
         options={{
-          title: "ListaActivoScreen",
+          title: "ComingSoonScreen",
           headerShown: false,
         }}
-      />
-      <StackManjActivos.Screen
-        name="AniadirActivo"
-        options={{
-          headerShown: false,
-        }}
-        component={AniadirActivos}
-      />
-      <StackManjActivos.Screen
-        name="DetalleActivo"
-        options={{
-          headerShown: false,
-        }}
-        component={DetalleActivo}
       />
     </StackManjActivos.Navigator>
   );
@@ -237,9 +225,21 @@ export default function App() {
               justifyContent: "center",
             }}
           />
-          {Login ? <Watson /> : <LoginNav />}
+          {Login ? <BarNavigator /> : <LoginNav />}
         </NavigationContainer>
       </FontsLoader>
     </PedidoContext.Provider>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "F32409",
+    alignItems: 'center',
+    justifyContent: "center",
+    dColor: "gray",
+  },
+  texto:{
+    fontFamily: "Lato_400Regular_Italic"
+  }
+});
