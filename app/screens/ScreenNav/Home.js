@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { HeadbarHome } from '../PruebaComponents/headbarHome';
-import { CardHome } from '../PruebaComponents/CardHome';
-import { Banner } from '../PruebaComponents/Banner';
-import { ButtonMore } from '../PruebaComponents/buttonMoreHome';
-import { ButtonBot } from '../PruebaComponents/ButtonBot';
+import { HeadbarHome} from '../../PruebaComponents/headbarHome'
+import { CardHome } from '../../PruebaComponents/CardHome';
+import { Banner } from '../../PruebaComponents/Banner';
+import { ButtonMore } from '../../PruebaComponents/buttonMoreHome';
+import { ButtonBot } from '../../PruebaComponents/ButtonBot';
 
 
 let screen = Dimensions.get('window');
@@ -18,7 +17,7 @@ let horizontalSeparation = width * 0.035
 
 
 
-export default function App() {
+export const ScreenHome = () => {
   return (
     <View style={styles.container}>
       <View style={styles.head}>
@@ -59,13 +58,6 @@ export default function App() {
 
 
 
-
-
-
-
-
-
-
     </View>
 
   );
@@ -101,7 +93,6 @@ const styles = StyleSheet.create({
   },
   popular: {
     fontSize: 16,
-    fontWeight: 'bold',
     paddingBottom: 5,
 
 

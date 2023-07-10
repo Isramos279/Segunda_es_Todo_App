@@ -2,8 +2,8 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Button } from '@rneui/themed'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Game from '../../img/Game.png'
-import Dices from '../../img/Dices.png'
+import Game from '../../assets/Game_Home.png'
+import Dices from '../../assets/Dices_Home.png'
 
 
 

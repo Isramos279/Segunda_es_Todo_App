@@ -1,6 +1,6 @@
 
 import { StyleSheet, Text, View, Image, Animated, Dimensions } from 'react-native';
-import CardImg from '../../img/card.jpg'
+import CardImg from '../../assets/card.jpg'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Card } from '@rneui/themed'
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 13,
         fontStyle: 'normal',
-        fontWeight: 400,
+        fontWeight: "400",
 
     },
     Descripcion: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         color: '#9DB2CE',
         fontSize: 11,
         fontStyle: 'normal',
-        fontWeight: 400,
+        fontWeight: "400",
 
     },
     plus: {

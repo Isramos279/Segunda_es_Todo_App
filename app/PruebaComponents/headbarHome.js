@@ -1,7 +1,7 @@
 
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Logo from '../../img/LogoN.png'
+import logos from "../theme/logos";
 
 export const Headbar = () => {
 
@@ -11,7 +11,7 @@ export const Headbar = () => {
             <View style={styles.headbar}>
                 <View style={styles.img}>
                     <Image
-                        source={require('../../img/LogoB.png')}
+                        source={logos.gris}
                         style={{ width: 60, height: 50.14925384521484 }}
                     />
                 </View>
@@ -30,7 +30,7 @@ export const HeadbarHome = () => {
     return (
         <View style={styles.headbarHome}>
             <Image
-                source={Logo}
+                source={logos.gris}
                 style={{ width: 60, height: 50.14925384521484 }}
             />
 

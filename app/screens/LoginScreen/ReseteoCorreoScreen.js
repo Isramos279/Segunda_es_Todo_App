@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     },
     titulo: {
         fontSize: 16,
-        fontWeight: 'bold',
         paddingBottom: 39
     },
     cajaBotones: {

@@ -10,6 +10,7 @@ import { LoginForm } from "./app/screens/LoginScreen/LoginScreen";
 import { Registrar } from "./app/screens/LoginScreen/RegistrarUsuario";
 import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
 import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
+import {ScreenHome} from './app/screens/ScreenNav/Home';
 import theme from "./app/theme/theme";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
@@ -63,7 +64,7 @@ const BarNavigator = () => {
       />
       <TabBar.Screen
         name="ManejoActivos2"
-        component={ComingSoon}
+        component={ScreenHome}
         options={{
           headerShown: false,
           title: "Home",
