@@ -22,6 +22,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { AniadirActivos } from "./app/screens/SeguridadInformatica/AgregarActivoScreen";
 import { ListaActivo } from "./app/screens/SeguridadInformatica/ListaActivosScreen";
 import { DetalleActivo } from "./app/screens/SeguridadInformatica/DetalleActivo";
+import { FontsLoader } from "./app/Components/FontsLoader";
 const StackManjActivos = createNativeStackNavigator();
 const StackMoProd = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
@@ -35,7 +36,6 @@ const Watson = () => {
   return (
     <TabWatson.Navigator
       screenOptions={({ route }) => ({
-
         tabBarActiveTintColor: theme.colors.morado,
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
@@ -55,29 +55,26 @@ const Watson = () => {
           headerShown: false,
           title: "Menu",
           tabBarIcon: () => {
-            return <Icon
-              name='menu'
-              size={24}
-              color='black'
-              type='Entypo'
-            />
-          }
+            return <Icon name="menu" size={24} color="black" type="Entypo" />;
+          },
         }}
       />
       <TabWatson.Screen
-        name="ManejoActivos1"
+        name="ManejoActivos11"
         component={ManejoActivos}
         options={{
           headerShown: false,
           title: "Carrito",
           tabBarIcon: () => {
-            return <Icon
-              name='shoppingcart'
-              size={24}
-              color='black'
-              type='ant-design'
-            />
-          }
+            return (
+              <Icon
+                name="shoppingcart"
+                size={24}
+                color="black"
+                type="ant-design"
+              />
+            );
+          },
         }}
       />
       <TabWatson.Screen
@@ -87,13 +84,8 @@ const Watson = () => {
           headerShown: false,
           title: "Home",
           tabBarIcon: () => {
-            return <Icon
-              name='home'
-              size={24}
-              color='black'
-              type='Entypo'
-            />
-          }
+            return <Icon name="home" size={24} color="black" type="Entypo" />;
+          },
         }}
       />
       <TabWatson.Screen
@@ -103,16 +95,12 @@ const Watson = () => {
           headerShown: false,
           title: "canjear",
           tabBarIcon: () => {
-            return <Icon
-              name='gift'
-              size={24}
-              color='black'
-              type='ant-design'
-            />
-          }
+            return (
+              <Icon name="gift" size={24} color="black" type="ant-design" />
+            );
+          },
         }}
       />
-
 
       <TabWatson.Screen
         name="ManejoActivos4"
@@ -121,16 +109,12 @@ const Watson = () => {
           headerShown: false,
           title: "usuario",
           tabBarIcon: () => {
-            return <Icon
-              name='user'
-              size={24}
-              color='black'
-              type='ant-design'
-            />
-          }
+            return (
+              <Icon name="user" size={24} color="black" type="ant-design" />
+            );
+          },
         }}
       />
-
     </TabWatson.Navigator>
   );
 };
@@ -160,16 +144,9 @@ const ManejoActivos = () => {
         }}
         component={DetalleActivo}
       />
-
     </StackManjActivos.Navigator>
   );
 };
-
-
-
-
-
-
 
 const LoginNav = () => {
   return (
@@ -250,18 +227,19 @@ export default function App() {
 
   return (
     <PedidoContext.Provider value={{ user, setUser }}>
-      <NavigationContainer>
-        <StatusBar
-          style={{
-            flex: 1,
-            backgroundColor: "#62CBDE",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        />
-        {Login ? <Watson /> : <LoginNav />}
-        {/* //Administrador ClientesTab */}
-      </NavigationContainer>
+      <FontsLoader>
+        <NavigationContainer>
+          <StatusBar
+            style={{
+              flex: 1,
+              backgroundColor: "#62CBDE",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          />
+          {Login ? <Watson /> : <LoginNav />}
+        </NavigationContainer>
+      </FontsLoader>
     </PedidoContext.Provider>
   );
 }

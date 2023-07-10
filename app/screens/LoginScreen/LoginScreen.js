@@ -17,8 +17,7 @@ import StyledText from "../../theme/StyledText";
 import { HelperText, TextInput } from "react-native-paper";
 import theme from "../../theme/theme";
 import { validateEmail } from "../../commons/validations";
-import Logotipo from "../../../assets/HermesLogo.png";
-import PushNotification from "react-native-push-notification";
+import Logotipo from "../../../assets/HermesLogo.jpg";
 
 export const LoginForm = ({ navigation }) => {
   const [usuario, setUsuario] = useState();
@@ -77,286 +76,228 @@ export const LoginForm = ({ navigation }) => {
     }
   };
 
-  const ValidarLogin = async () => {
-    validaciones();
+    const ValidarLogin = async () => {
+        validaciones()
 
-    Alert.alert("Vlaidando")
-  };
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.cajaCabecera}>
-        <Image
-          source={require("../../../assets/logoWhiteSi.png")}
-          style={{ width: 500, height: 160, margin: 30, resizeMode: "contain" }}
-        />
-      </View>
-      <View style={styles.cajaCuerpo}>
-        <Text
-          style={{
-            alignContent: "center",
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: 30,
-            // backgroundColor:"blue",
-            justifyContent: "flex-start",
-          }}
-        >
-          {" "}
-          Iniciar Sesión
-        </Text>
+        // Alert.alert("Vlaidando")
 
-        <View style={{ paddingTop: "8%"}}>
-          <TextInput
-            label="¿A dónde te llegan las notas? "
-            value={usuario}
-            onChangeText={setUsuario}
-            mode="outlined"
-            placeholder="Correo"
-            autoFocus={true}
-            outlineColor="#666666"
-            activeOutlineColor="#666666"
-          />
-          <HelperText type="error" visible={hasErrorcorreo}>
-            {errorCorreo}
-          </HelperText>
 
-          <TextInput
-            label="¿La que no le compartes ni a la novia"
-            placeholder="Contraseña"
-            value={contraseña}
-            style={{ paddingHorizontal: 16 }}
-            onChangeText={setcontraseña}
-            mode="outlined"
-            outlineColor="#666666"
-            activeOutlineColor="#666666"
-            textColor="#e0e0e0"
-            autoFocus={true}
-            secureTextEntry={cambiarOjo}
-            right={
-              cambiarOjo ? (
-                <TextInput.Icon
-                  icon="eye"
-                  onPress={() => {
-                    setCambiarOjo(!cambiarOjo);
-                    return false;
-                  }}
-                />
-              ) : (
-                <TextInput.Icon
-                  icon="eye"
-                  onPress={() => {
-                    setCambiarOjo(!cambiarOjo);
-                    return false;
-                  }}
-                />
-              )
-            }
-          />
-          {hasErrorcontraseña ? (
-            <HelperText type="error" visible={hasErrorcontraseña}>
-              {errorPassword}
-            </HelperText>
-          ) : null}
-          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-            <TouchableHighlight
-              activeOpacity={0.6}
-              underlayColor="#DDDDDD"
-              onPress={() => {
-                navigation.navigate("ReseteoNav");
-              }}
-            >
-              <View>
-                <Text style={{ color: "#F32409" }}>
-                  ¿Olvidaste tu contraseña?
-                </Text>
-              </View>
-            </TouchableHighlight>
-          </View>
-          <View style={{ alignSelf: "center" }}>
-            <Button
-              title="Iniciar Sesion"
-              onPress={ValidarLogin}
-              buttonStyle={{
-                borderRadius: 10,
-                backgroundColor: "#2e2e2e",
-              }}
-              containerStyle={{
-                width: 200,
-                paddingTop: 40,
-              }}
-            />
-            <Text
-              style={{
-                alignContent: "center",
-                textAlign: "center",
-                fontWeight: "bold",
-                // fontSize: 30,
-                // backgroundColor:"blue",
-                justifyContent: "flex-start",
-                marginTop: 20,
-              }}
-            >
-              {" "}
-              O ingresa con
-            </Text>
-            <View style={{ flexDirection: "row", justifyContent:"center", marginTop:20}}>
-              <Image
-                source={require("../../../assets/GoogleLoginLogo.png")}
-                style={{ width: 30, height: 30 }}
-              />
-               <Image
-                source={require("../../../assets/IncognitoLoginLogo.png")}
-                style={{ width: 30, height: 30 }}
-              />
+    }
+
+    return <View style={styles.container}>
+        <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModalVisible(!modalVisible);
+            }}>
+            <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                    <Image
+                        style={[
+                            styles.logo,
+                            {
+                                height: 100,
+                                width: Dimensions.get("window").width,
+                                padding: 40
+                            },
+                        ]}
+                        source={Logotipo}
+                    />
+                    {hasErrorcorreo ? <StyledText subtitle >{errorCorreo}</StyledText> : hasErrorcontraseña ? <StyledText subtitle >{errorPassword}</StyledText> : hasErrorcontraseña2 ? <StyledText subtitle >{contraseña2}</StyledText> : <StyledText subtitle >Ingreso Exitoso</StyledText>}
+
+                    <Pressable
+                        style={[styles.button, styles.buttonClose]}
+                        onPress={() => setModalVisible(!modalVisible)}>
+                        {hasErrorcorreo ? <StyledText white body>Cerrar</StyledText> : hasErrorcontraseña ? <StyledText body white >Cerrar</StyledText> : hasErrorcontraseña2 ? <StyledText body white >Cerrar</StyledText> : <StyledText body white >Continuar</StyledText>}
+                    </Pressable>
+                </View>
             </View>
-            <Text
-              style={{
-                alignContent: "center",
-                textAlign: "center",
-                fontWeight: "bold",
-                // fontSize: 30,
-                // backgroundColor:"blue",
-                justifyContent: "flex-start",
-                marginTop:20
+        </Modal>
+        <View style={styles.cajaCabecera}>
+            <Image source={require('../../../assets/HermesLogo.jpg')} style={{ width: 500, height: 160, margin: 30, resizeMode: 'contain' }} />
+        </View>
+        <View style={styles.cajaCuerpo}>
 
-               
-              }}
-            >
-              {" "}
-              ¿No tienes cuenta aún?
-            </Text>
-            <TouchableHighlight
-              activeOpacity={0.6}
-              underlayColor="#DDDDDD"
-              onPress={() => {
-                navigation.navigate("RegistrarNav");
-              }}
-            >
-            <Text
-              style={{
-                alignContent: "center",
-                textAlign: "center",
-                fontWeight: "bold",
-                // fontSize: 30,
-                // backgroundColor:"#f32409",
-                justifyContent: "flex-start",
-                color:"#f32409",
-                marginTop:25
-               
-              }}
-            >
-              {" "}
-              Regístrate
-            </Text>
-            </TouchableHighlight>
-          </View>
+            <TextInput
+                label="Email"
+                value={usuario}
+                onChangeText={setUsuario}
+                mode="outlined"
+
+
+            />
+            <HelperText type="error" visible={hasErrorcorreo}>
+                {errorCorreo}
+            </HelperText>
+
+            <TextInput
+                label="Contraseña"
+                value={contraseña}
+                onChangeText={setcontraseña}
+                mode="outlined"
+                secureTextEntry={cambiarOjo}
+                right={
+                    cambiarOjo ? <TextInput.Icon icon="eye"
+
+                        onPress={() => {
+                            setCambiarOjo(!cambiarOjo);
+                            return false;
+                        }} /> : <TextInput.Icon icon="eye"
+                            onPress={() => {
+                                setCambiarOjo(!cambiarOjo);
+                                return false;
+                            }} />
+                }
+
+
+
+            />
+            <HelperText type="error" visible={hasErrorcontraseña}>
+                {errorPassword}
+            </HelperText>
+        </View>
+        <View style={styles.cajaBotones}>
+
+            <Button
+                title='Iniciar Sesion'
+                onPress={ValidarLogin}
+                buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.morado }}
+                containerStyle={{
+                    width: 200,
+                    paddingTop: 40
+                }}
+            />
+            <View style={{ flexDirection: "row" }}>
+                <Text>Recupera tu cuenta.</Text>
+
+                <TouchableHighlight
+                    activeOpacity={0.6}
+                    underlayColor="#DDDDDD"
+                    onPress={() => { navigation.navigate("ReseteoNav") }}>
+                    <View >
+                        <Text style={styles.titulo} >Click aqui</Text>
+                    </View>
+                </TouchableHighlight>
+            </View>
+            <Button
+                title='Crear Cuenta'
+                onPress={() => {
+                    navigation.navigate("RegistrarNav")
+                }}
+                buttonStyle={{ borderRadius: 10, backgroundColor: theme.colors.jade }}
+                containerStyle={{
+                    width: 200,
+                    paddingTop: 40
+                }}
+            />
+
+
         </View>
 
-        {/*ffin del  view body */}
-      </View>
     </View>
-  );
+
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#2e2e2e",
-    //alignItems: 'center',
-    alignItems: "center",
-    justifyContent: "center",
-    // padding: 10,
-  },
-  cajaCabecera: {
-    //backgroundColor: 'cyan',
-    flex: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 100,
-  },
-  cajaCuerpo: {
-    backgroundColor: "brown",
-    flex: 10,
-    paddingTop: "10%",
-    // alignItems: "stretch",
-    paddingHorizontal: 30,
-    justifyContent: "flex-start",
-
-    borderTopStartRadius: 15,
-    borderTopEndRadius: 15,
-    backgroundColor: "#ffffff",
-    width: theme.dimensions.maxWidth,
-  },
-  titulo: {
-    fontSize: 16,
-    fontWeight: "bold",
-    paddingBottom: 39,
-  },
-
-  txtinput: {
-    borderWidth: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 10,
-    borderColor: "gray",
-    width: 310,
-    height: 50,
-  },
-  label: {
-    zIndex: 100,
-    position: "absolute",
-    backgroundColor: "white",
-    top: -11,
-    left: 10,
-    marginLeft: 11,
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    // alignItems: 'center',
-    marginTop: "10%",
-    // backgroundColor: 'red',
-  },
-  modalView: {
-    backgroundColor: "white",
-    borderRadius: 20,
-    paddingTop: "5%",
-    paddingHorizontal: "20%",
-    justifyContent: "space-around",
-    paddingBottom: "5%",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    container: {
+        flex: 1,
+        backgroundColor: '#ffff',
+        //alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-  },
-  logo: {
-    marginVertical: 20,
-    resizeMode: "center",
-  },
+    cajaCabecera: {
+        //backgroundColor: 'cyan',
+        flex: 2,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        padding: 100
+    },
+    cajaCuerpo: {
+        //backgroundColor: 'brown',
+        flex: 4,
+        alignItems: 'stretch',
+        paddingHorizontal: 30,
+        justifyContent: 'flex-start',
+    },
+    titulo: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        paddingBottom: 39
+    },
+    cajaBotones: {
+        paddingBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        flex: 4
+    },
+    txtinput: {
+        borderWidth: 1,
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        borderRadius: 10,
+        borderColor: 'gray',
+        width: 310,
+        height: 50
+    },
+    label: {
+        zIndex: 100,
+        position: 'absolute',
+        backgroundColor: 'white',
+        top: -11,
+        left: 10,
+        marginLeft: 11,
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        // alignItems: 'center',
+        marginTop: "10%",
+        // backgroundColor: 'red',
+    },
+    modalView: {
+        backgroundColor: 'white',
+        borderRadius: 20,
+        paddingTop: "5%",
+        paddingHorizontal: "20%",
+        justifyContent: "space-around",
+        paddingBottom: "5%",
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonOpen: {
+        backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+        backgroundColor: '#2196F3',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+    }, logo: {
+        marginVertical: 20,
+        resizeMode: "center",
+    }
+
 });
