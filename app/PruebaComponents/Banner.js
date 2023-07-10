@@ -1,5 +1,5 @@
-import {Banner1} from '../../assets/banner.png'
-import {Banner2} from '../../assets/banner1.jpg'
+import Banner1 from '../../assets/banner.png'
+import Banner2 from '../../assets/banner1.jpg'
 
 import { View, FlatList, Image, Dimensions } from 'react-native';
 
@@ -10,8 +10,8 @@ export const Banner =() =>{
     let bannerWith = width * 0.93;
 
     const images = [
-        { id: 1, source: {Banner1} },
-        { id: 2, source: {Banner2} },
+        { id: 1, source: Banner1 },
+        { id: 2, source: Banner2 },
       ];
 
       const renderItem = ({ item }) => (

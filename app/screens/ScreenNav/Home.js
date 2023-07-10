@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
   popular: {
     fontSize: 16,
     paddingBottom: 5,
+    fontWeight: 'bold',
 
 
   },
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   buttonBot: {
-    flex: 0.8,
+    flex: 0.5,
   }
 
 
