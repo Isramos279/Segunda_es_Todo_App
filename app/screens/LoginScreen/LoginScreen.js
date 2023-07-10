@@ -206,25 +206,8 @@ export const LoginForm = ({ navigation }) => {
             fontFamily: "Itim_400Regular",
           }}
         />
-        <Button
-          title="Test Fonts"
-          onPress={() => navigation.navigate("test")}
-          buttonStyle={{
-            borderRadius: 10,
-            backgroundColor: theme.colors.morado,
-            fontFamily: "Itim_400Regular",
-          }}
-          containerStyle={{
-            width: 200,
-            paddingTop: 40,
-            fontSize: 50,
-            fontFamily: "Itim_400Regular",
-          }}
-        />
-
         <View style={{ flexDirection: "row" }}>
           <Text style={{ fontFamily: theme.fonts.text, fontSize: 16 }}>Recupera tu cuenta.</Text>
-
           <TouchableHighlight
             activeOpacity={0.6}
             underlayColor="#DDDDDD"

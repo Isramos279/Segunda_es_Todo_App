@@ -22,7 +22,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { AniadirActivos } from "./app/screens/SeguridadInformatica/AgregarActivoScreen";
 import { ListaActivo } from "./app/screens/SeguridadInformatica/ListaActivosScreen";
 import { DetalleActivo } from "./app/screens/SeguridadInformatica/DetalleActivo";
-import { Test } from "./app/screens/LoginScreen/Test";
 import { FontsLoader } from "./app/Components/FontsLoader";
 const StackManjActivos = createNativeStackNavigator();
 const StackMoProd = createNativeStackNavigator();
