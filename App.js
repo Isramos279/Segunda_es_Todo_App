@@ -11,6 +11,7 @@ import { Registrar } from "./app/screens/LoginScreen/RegistrarUsuario";
 import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
 import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
 import {ScreenHome} from './app/screens/ScreenNav/Home';
+import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
 import theme from "./app/theme/theme";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
@@ -41,7 +42,7 @@ const BarNavigator = () => {
       })}
     >
       <TabBar.Screen
-        name="ManejoActivos"
+        name="Menu"
         component={ComingSoon}
         options={{
           headerShown: false,
@@ -52,37 +53,35 @@ const BarNavigator = () => {
         }}
       />
       <TabBar.Screen
-        name="ManejoActivos11"
+        name="Car"
         component={ComingSoon}
         options={{
           headerShown: false,
           title: "Carrito",
-          tabBarIcon: () => {
-            return <Icon name="shoppingcart" size={24} color={theme.colors.orangeSegunda} type="ant-design" />;
+          tabBarIcon: ({color}) => {
+            return <Icon name="shoppingcart" size={24} color={color} type="ant-design" />;
           },
         }}
       />
       <TabBar.Screen
-        name="ManejoActivos2"
+        name="Home"
         component={ScreenHome}
         options={{
           headerShown: false,
           title: "Home",
-          tabBarIcon: () => {
-            return <Icon name="home" size={24} color={theme.colors.orangeSegunda} type="Entypo" />;
+          tabBarIcon: ({color}) => {
+            return <Icon name="home" size={24} color={color} type="Entypo" />;
           },
         }}
       />
       <TabBar.Screen
-        name="ManejoActivos3"
-        component={ComingSoon}
+        name="Change"
+        component={CuponScreen}
         options={{
           headerShown: false,
           title: "canjear",
-          tabBarIcon: () => {
-            return (
-              <Icon name="gift" size={24} color={theme.colors.orangeSegunda} type="ant-design" />
-            );
+          tabBarIcon: ({color}) => {
+            return <Icon name="gift" size={24} color={color} type="ant-design" />;
           },
         }}
       />
@@ -93,9 +92,9 @@ const BarNavigator = () => {
         options={{
           headerShown: false,
           title: "usuario",
-          tabBarIcon: () => {
+          tabBarIcon: ({color}) => {
             return (
-              <Icon name="user" size={24} color={theme.colors.orangeSegunda} type="ant-design" />
+              <Icon name="user" size={24} color={color} type="ant-design" />
             );
           },
         }}
@@ -235,7 +234,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "F32409",
+    backgroundColor: theme.colors.whiteSegunda,
     alignItems: 'center',
     justifyContent: "center",
     dColor: "gray",

@@ -1,3 +1,8 @@
+import {Dimensions } from 'react-native';
+let screen = Dimensions.get('window');
+let widthScreen = screen.width;
+let heightScreen = screen.height;
+
 const theme = {
   colors: {
     blackSegunda: "#2E2E2E",
@@ -22,5 +27,9 @@ const theme = {
     bolder: "900",
     normal: "normal",
   },
+  separation:{
+    headSeparation : heightScreen * 0.03,
+    horizontalSeparation : widthScreen * 0.035,
+  }
 };
 export default theme;

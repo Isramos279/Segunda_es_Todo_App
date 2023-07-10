@@ -7,7 +7,7 @@ export const ButtonMore = () => {
     return (
         <View>
             <Button
-                title="Ver mas"
+                title="Ver más"
                 buttonStyle={{
                     backgroundColor: '#F25B0C',
                     borderWidth: 10,

@@ -4,8 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import logos from "../theme/logos";
 
 export const Headbar = () => {
-
-
     return (
         <View style={styles.container}>
             <View style={styles.headbar}>
@@ -18,6 +16,19 @@ export const Headbar = () => {
 
                 <View style={styles.icon}>
                     <Icon name='bell' size={24} color='white' type='ant-design' />
+                </View>
+
+            </View>
+        </View>
+    );
+};
+
+export const HeadbarCanje = () => {
+    return (
+        <View style={styles.container}>
+            <View style={styles.HeadbarCanjeBar}>
+                <View style={styles.icon}>
+                    <Icon name='shopping-bag' size={24} color='white' type='font-awesome-5' />
                 </View>
 
             </View>
@@ -50,8 +61,6 @@ export const HeadbarHome = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-
     },
     root: {
         flex: 1,
@@ -90,6 +99,12 @@ const styles = StyleSheet.create({
         
 
 
+    },
+    HeadbarCanjeBar:{
+        paddingVertical: 10,
+        backgroundColor: '#2E2E2E',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
 });
 

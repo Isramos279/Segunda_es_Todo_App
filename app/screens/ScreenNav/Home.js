@@ -1,20 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
-import { HeadbarHome} from '../../PruebaComponents/headbarHome'
+import { HeadbarHome} from '../../PruebaComponents/Headbar';
 import { CardHome } from '../../PruebaComponents/CardHome';
 import { Banner } from '../../PruebaComponents/Banner';
 import { ButtonMore } from '../../PruebaComponents/buttonMoreHome';
 import { ButtonBot } from '../../PruebaComponents/ButtonBot';
-
-
-let screen = Dimensions.get('window');
-let width = screen.width;
-let height = screen.height;
-
-//Separar la barra superior
-let headSeparation = height * 0.03
-let horizontalSeparation = width * 0.035
-
+import theme from "../../theme/theme";
 
 
 export const ScreenHome = () => {
@@ -23,19 +14,16 @@ export const ScreenHome = () => {
       <View style={styles.head}>
         <HeadbarHome />
       </View>
-      {/* <View style={styles.head}><HeadbarHome /></View> */}
       <View style={styles.banner}><Banner /></View>
 
       <View style={styles.text}>
         <Text style={styles.popular}>
-          Popular!
+          ¡Popular!
         </Text>
 
         <ButtonMore />
 
       </View>
-
-
 
       <ScrollView style={styles.card} horizontal>
         <CardHome />
@@ -45,7 +33,7 @@ export const ScreenHome = () => {
 
       <View style={styles.text}>
         <Text style={styles.popular}>
-          A Viciarse!
+          ¡A Viciarse!
         </Text>
 
       </View>
@@ -69,17 +57,15 @@ export const ScreenHome = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.whiteSegunda,
     flexDirection: 'column',
-    marginHorizontal: horizontalSeparation,
+    paddingHorizontal: theme.separation.horizontalSeparation,
     justifyContent: 'flex-start',
-
-
   },
   head: {
     flex: 0.4,
     justifyContent: 'flex-start',
-    paddingTop: headSeparation,
+    paddingTop: theme.separation.headSeparation,
   },
   banner: {
     flex: 0.7,
