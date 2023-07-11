@@ -34,6 +34,10 @@ const theme = {
   },
   heightBar:{
     heightSize: heightScreen * 0.07,
+  },
+  screenSize:{
+    width: widthScreen,
+    height: heightScreen,
   }
 };
 export default theme;

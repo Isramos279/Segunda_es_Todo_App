@@ -12,6 +12,7 @@ import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
 import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
 import {ScreenHome} from './app/screens/ScreenNav/Home';
 import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
+import { CarScreen } from "./app/screens/ScreenNav/Car";
 import {UserScreen} from './app/screens/ScreenNav/User'
 import theme from "./app/theme/theme";
 //Retorno de pedido
@@ -55,7 +56,7 @@ const BarNavigator = () => {
       />
       <TabBar.Screen
         name="Car"
-        component={ComingSoon}
+        component={CarScreen}
         options={{
           headerShown: false,
           title: "Carrito",

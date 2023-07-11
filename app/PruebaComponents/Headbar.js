@@ -22,6 +22,26 @@ export const Headbar = () => {
     );
 };
 
+//Barra de Carro de compras
+export const HeadbarCar = () => {
+    return (
+        <View style={styles.headbar}>
+
+            <View style={styles.centrado}>
+                <Icon name='angle-left' size={33} color='white' type='font-awesome-5' />
+            </View>
+
+            <View style={styles.centrado}>
+                <Text style={styles.TextoBarra}>Carrito</Text>
+            </View>
+
+            <View style={styles.centrado}>
+                <Icon name='shopping-cart' size={24} color='white' type='font-awesome-5' />
+            </View>
+        </View>
+    );
+};
+
 //Barra de Canjeo de cupones
 export const HeadbarCanje = () => {
     return (
