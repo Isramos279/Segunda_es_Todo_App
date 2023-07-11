@@ -16,6 +16,7 @@ const theme = {
     body: 16,
     title: 40,
     subtitle: 25,
+    sizeBar: 29,
   },
   fonts: {
     main: "System",
@@ -30,6 +31,9 @@ const theme = {
   separation:{
     headSeparation : heightScreen * 0.03,
     horizontalSeparation : widthScreen * 0.035,
+  },
+  heightBar:{
+    heightSize: heightScreen * 0.07,
   }
 };
 export default theme;

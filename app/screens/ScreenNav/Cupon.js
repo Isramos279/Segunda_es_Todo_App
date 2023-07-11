@@ -21,13 +21,7 @@ const styles = StyleSheet.create({
         paddingTop: theme.separation.headSeparation,
     },
     body:{
-        flex: 0.4,
-        justifyContent: 'flex-start',
+        flex: 1,
         paddingHorizontal: theme.separation.horizontalSeparation,
     },
-    head: {
-        flex: 0.4,
-        justifyContent: 'flex-start',
-        paddingTop: theme.separation.headSeparation,
-      },
 });
