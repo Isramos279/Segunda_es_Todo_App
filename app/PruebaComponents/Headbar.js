@@ -28,7 +28,7 @@ export const HeadbarCanje = () => {
         <View style={styles.headbar}>
 
             <View style={styles.centrado}>
-                <Icon name='arrow_back_ios' size={24} color='white' type='material' />
+                <Icon name='angle-left' size={33} color='white' type='font-awesome-5' />
             </View>
 
             <View style={styles.centrado}>
