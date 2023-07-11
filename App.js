@@ -12,6 +12,7 @@ import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
 import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
 import {ScreenHome} from './app/screens/ScreenNav/Home';
 import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
+import {UserScreen} from './app/screens/ScreenNav/User'
 import theme from "./app/theme/theme";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
@@ -88,7 +89,7 @@ const BarNavigator = () => {
 
       <TabBar.Screen
         name="ManejoActivos4"
-        component={ComingSoon}
+        component={UserScreen}
         options={{
           headerShown: false,
           title: "usuario",

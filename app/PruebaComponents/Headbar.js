@@ -58,6 +58,26 @@ export const HeadbarHome = () => {
     )
 }
 
+//User head bar
+export const HeadbarUser = () => {
+    return (
+        <View style={styles.headbar}>
+
+            <View style={styles.centrado}>
+                <Icon name='angle-left' size={33} color='white' type='font-awesome-5' />
+            </View>
+
+            <View style={styles.centrado}>
+                <Text style={styles.TextoBarra}>Usuario</Text>
+            </View>
+
+            <View style={styles.centrado}>
+                <Icon name='user' size={24} color='white' type='font-awesome-5' />
+            </View>
+        </View>
+    );
+};
+
 
 
 const styles = StyleSheet.create({
