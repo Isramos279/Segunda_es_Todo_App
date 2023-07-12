@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import theme from "../../theme/theme";
 import ImagenImport from "../../theme/Images";
 import { Button } from "@rneui/base";
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, ScrollView} from 'react-native';
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
+import { consultarTest } from "../../Services/ProductosSrv";
 
 export const CarScreen  = () =>{
-    const [codigo, setCodigo] = useState();
+    const [productos,setProductos]=useState([])
+
+    useEffect(()=>{
+        recuperarProductos();
+    },[]);
+
+    const recuperarProductos=()=>{
+        consultarTest(setProductos);
+    }
+
     return( 
     <View style={styles.container}>
         {/* Encabezado */}
@@ -16,47 +26,77 @@ export const CarScreen  = () =>{
         {/* Body's Screen */}
         <View style={styles.body}>
 
-            <View>
-                {/* Mostrar Puntos  */}
-                <View style={styles.mostrarPuntos}>
-                    <View style={styles.centrado}>
-                        <Text style={styles.tipoLetra}>Tus puntos:</Text>
-                    </View>
-                    
-                    <View style={styles.puntos}>
-                        <Image
-                            source={ImagenImport.coin}
-                            style={{ width: 20, height: 20 }}
-                        />
-                        <Text style={styles.cantidadPuntos}>200</Text>
-                    </View>
+            {/* Mostrar Puntos  */}
+            <View style={styles.mostrarPuntos}>
+                <View style={styles.centrado}>
+                    <Text style={styles.tipoLetra}>Tus puntos:</Text>
                 </View>
                 
-                <MostrarProducto/>
-
-            </View>
-
-            <View>
-                {/* Botones*/}
-                <View style={styles.centrado}>
-                    <Button
-                        title="Canjear"
-                        buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda}]}
-                        containerStyle={{
-                            paddingTop: 40,
-                            fontFamily: theme.fonts.text,
-                        }}
+                <View style={styles.puntos}>
+                    <Image
+                        source={ImagenImport.coin}
+                        style={{ width: 20, height: 20 }}
                     />
-                    <Button
-                        title="Cancelar"
-                        buttonStyle={[styles.botones,{backgroundColor: theme.colors.orangeSegunda}]}
-                        containerStyle={{
-                            paddingTop: 20,
-                            fontFamily: theme.fonts.text,
-                        }}
-                    />
+                    <Text style={styles.cantidadPuntos}>200</Text>
                 </View>
             </View>
+
+            {/* Screen Button after show the points */}
+            <View style={{flex: 1}}>
+
+                {/* Product's Car buy */}
+                <View style={styles.listProducts}>
+                    <ScrollView vertical>
+                            <FlatList
+                                data={productos}
+                                renderItem={({item})=><MostrarProducto item={item} />}
+                                keyExtractor={(item)=>{return item.codigo}}
+                            />
+                    </ScrollView>
+                </View>
+
+                {/* Footer of the Car Screen */}
+                <View style={styles.footer}>
+
+                    {/* Resume Productos (Add Products, total points) */}
+                    <View style={styles.resumeProducts}>
+                        <Button
+                            title="Más Productos"
+                            buttonStyle={[styles.buttonMoreProducts]}
+                            containerStyle={{
+                                fontFamily: theme.fonts.text,
+                            }}
+                        />
+                        <View style={styles.centrado}>
+                            <Text style={styles.tipoLetra}>Total: 225 pts</Text>
+                        </View>
+                        
+
+                    </View>
+
+                    {/* Botones*/}
+                    <View style={styles.centrado}>
+                        <Button
+                            title="Canjear"
+                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.orangeSegunda}]}
+                            containerStyle={{
+                                paddingTop: 20,
+                                fontFamily: theme.fonts.text,
+                            }}
+                        />
+                        <Button
+                            title="Cancelar"
+                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda}]}
+                            containerStyle={{
+                                paddingTop: 10,
+                                fontFamily: theme.fonts.text,
+                            }}
+                        />
+                    </View>
+                </View>
+            </View>
+
+            
             
         </View>
     </View>)
@@ -103,8 +143,29 @@ const styles = StyleSheet.create({
     cantidadPuntos:{
         color: theme.colors.whiteSegunda,
     },
+    listProducts:{
+        flex: 3,
+        marginTop: 12,
+    },
+    footer:{
+        flex: 1.4,
+    },
+    resumeProducts:{
+        borderTopColor: theme.colors.greySegunda,
+        borderTopWidth: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 10,
+        paddingTop: 5,
+    },
+    buttonMoreProducts:{
+        width: (theme.screenSize.width-(theme.separation.horizontalSeparation*4))/2,
+        backgroundColor: theme.colors.blackSegunda,
+        borderRadius: 10
+    },
     botones:{
-        width: theme.screenSize.width-(theme.separation.horizontalSeparation*4),
+        width: theme.screenSize.width-(theme.separation.horizontalSeparation*2),
         borderRadius: 8,
+        height: 45
     },
 });

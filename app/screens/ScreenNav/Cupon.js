@@ -60,7 +60,7 @@ export const CuponScreen  = () =>{
                     }}
                     containerStyle={{
                         width: 150,
-                        paddingTop: 40,
+                        paddingTop: 20,
                         fontFamily: theme.fonts.text,
                     }}
                 />
@@ -147,6 +147,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginVertical: 20,
         paddingTop: 10,
-        backgroundColor: theme.colors.greySegunda,
+        backgroundColor: theme.colors.greylow,
     },
 });

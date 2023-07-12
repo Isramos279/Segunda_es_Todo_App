@@ -11,6 +11,7 @@ import theme from "../../theme/theme";
 export const ScreenHome = () => {
   return (
     <View style={styles.container}>
+      
       <View style={styles.head}>
         <HeadbarHome />
       </View>
@@ -43,8 +44,6 @@ export const ScreenHome = () => {
         <ButtonBot />
 
       </View>
-
-
 
     </View>
 

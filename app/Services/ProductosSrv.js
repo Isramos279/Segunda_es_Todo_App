@@ -1,6 +1,13 @@
-
-
 import { collection, doc, getDocs, setDoc, addDoc, getDoc, query, where } from 'firebase/firestore'
+import imagen1 from "../../assets/Productos/Ceviche.png"
+import imagen2 from "../../assets/Productos/Camaron.png"
+import imagen3 from "../../assets/Productos/Agua.png"
+
+const productosQuemados = [
+    {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#54423445"},
+    {imagen:imagen2,  nombre : "Ceviche de camaron", puntos: 25,   cantidad: 1, codigo: "#54412345"},
+    {imagen:imagen3,  nombre : "Agua",               puntos: 150,  cantidad: 1, codigo: "#54471238"},
+]
 
 
 export const guardar = (producto) => {
@@ -20,20 +27,18 @@ export const consultar = async (fnsetPedidos) => {
     const productoRef = collection(global.dbCon, "Pedidos");
     const SnapPedidos = await getDocs(productoRef);
     let PedidoArray = []
+
     SnapPedidos.forEach((documento) => {
-        console.log("doc", documento.data());
-        if (documento.data().codigo === "hX4gT8sDdRPCO5N6qt5mykIUa9g2") {
-            console.log("doce", documento.data());
-            PedidoArray.push(documento.data());
-        }
-
-
-
+        console.log("doc", productosQuemados);
+        PedidoArray.push(productosQuemados.data());
     });
 
     fnsetPedidos(PedidoArray)
     console.log("pediFunc", PedidoArray);
+}
 
+export const consultarTest = async (fnsetPedidos) => {
+    fnsetPedidos(productosQuemados)
 }
 
 

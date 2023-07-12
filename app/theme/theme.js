@@ -10,6 +10,7 @@ const theme = {
     orangeSegunda: "#F25B0C",
     redSegunda: "#F32409",
     greySegunda: "#DEDEDE",
+    greylow: "#f0f0f0",
     naranjaDegradadoSegunda: "linear-gradient(180deg, #FD5100 0%, #FEC20C 100%)",
   },
   fontSize: {
@@ -17,6 +18,8 @@ const theme = {
     title: 40,
     subtitle: 25,
     sizeBar: 29,
+    carProducts: 18,
+    pointsCarProductos: 14,
   },
   fonts: {
     main: "System",
@@ -30,7 +33,8 @@ const theme = {
   },
   separation:{
     headSeparation : heightScreen * 0.03,
-    horizontalSeparation : widthScreen * 0.035,
+    horizontalSeparation : widthScreen * 0.055,
+    userHorizontalSeparation: widthScreen * 0.035,
   },
   heightBar:{
     heightSize: heightScreen * 0.07,

@@ -50,15 +50,14 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 2,
-        paddingHorizontal: theme.separation.horizontalSeparation,
+        paddingHorizontal: theme.separation.userHorizontalSeparation
     },
     text: {
         flexDirection: 'row',
         flex: 0.1,
         alignItems: 'center',
-        paddingHorizontal: theme.separation.horizontalSeparation,
         alignItems: 'flex-end',
-
+        paddingHorizontal: theme.separation.userHorizontalSeparation,
     },
     UserCard: {
         flex: 0.3,
