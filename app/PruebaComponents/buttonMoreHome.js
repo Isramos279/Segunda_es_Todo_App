@@ -10,8 +10,7 @@ export const ButtonMore = () => {
                 title="Ver más"
                 buttonStyle={{
                     backgroundColor: '#F25B0C',
-                    borderWidth: 10,
-                    borderColor: 'white',
+
                     borderRadius: 30,
                 }}
                 containerStyle={{

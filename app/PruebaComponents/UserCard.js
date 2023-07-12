@@ -1,8 +1,9 @@
 
-import { StyleSheet, Text, View, Image, Animated, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Animated, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Card } from '@rneui/themed'
 import User from '../../assets/UserExample.png'
+
 
 export const UserCard = () => {
 
@@ -29,11 +30,14 @@ export const UserCard = () => {
 
                 </View>
 
-                <View style={styles.edit}>
-                    <Icon name="edit" size={24} type="font-awesome-5" color={'#F25B0C'} />
-                    <Text style={{color: '#F25B0C'}}>Edita tu informacion</Text>
-                </View>
 
+                <TouchableOpacity style={styles.edit}>
+                    <Icon name="edit" size={24} type="font-awesome-5" color={'#F25B0C'} />
+                    <Text style={{ color: '#F25B0C' }}>Edita tu informacion</Text>
+                </TouchableOpacity>
+
+
+              
 
             </Card>
         </View>

@@ -30,18 +30,44 @@ export const ButtonBotUser = () => {
         <View>
             <Card containerStyle={{ borderRadius: 10, }}>
                 <View style={styles.UserButton}>
-                    <Button buttonStyle={styles.styleUserButton}>
-                        <Icon name="shopping-cart" size={24} type="entypo" color={'white'} />
-                        Carrito de compras
-                    </Button>
-                    <Button buttonStyle={styles.styleUserButton}>
-                        <Icon name="ticket" size={25} type="entypo" color={'white'} />
-                        Canjear Codigo
-                    </Button>
-                    <Button buttonStyle={styles.styleUserButton}>
-                        <Icon name="lock" size={24} type="font-awesome-5" color={'white'} />
-                        Terminos y Condiciones
-                    </Button>
+                    <TouchableOpacity onPress={() => console.log('Botón presionado')} style={styles.styleUserButton}>
+                        <View style={styles.icon}> 
+                            <Icon name="shopping-cart" size={24} type="entypo" color={'white'} />
+                        </View>
+
+
+                        <View style={styles.textButton}>
+                            <Text style={styles.text}>Carrito de compras</Text>
+                        </View>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => console.log('Botón presionado')} style={styles.styleUserButton}>
+                        <View style={styles.icon}>
+                            <Icon name="ticket" size={25} type="entypo" color={'white'} />
+                        </View>
+
+
+                        <View style={styles.textButton}>
+                            <Text style={styles.text}>Canjear Codigo</Text>
+                        </View>
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => console.log('Botón presionado')} style={styles.styleUserButton}>
+                        <View style={styles.icon}>
+                            <Icon name="lock" size={24} type="font-awesome-5" color={'white'} />
+                        </View>
+
+                        <View style={styles.textButton}>
+                            <Text style={styles.text}>Terminos y Condiciones</Text>
+                        </View>
+
+                    </TouchableOpacity>
+
+
+
+
 
                 </View>
 
@@ -70,6 +96,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
 
+
     },
     container: {
         flexDirection: 'row',
@@ -86,8 +113,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#2E2E2E',
         borderRadius: 15,
         marginBottom: 10,
-        justifyContent: 'space-around',
-    
-        
+        flexDirection: 'row',
+        padding: 10,
+    },
+    textButton: {
+        flex: 2,
+    },
+    icon: {
+        paddingRight: 20,
+        flex: 1,
+        alignItems: 'flex-end',
     },
 });
