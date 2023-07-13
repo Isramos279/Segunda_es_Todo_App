@@ -1,23 +1,26 @@
 import { useState, useEffect } from "react";
-import theme from "../../theme/theme";
-import ImagenImport from "../../theme/Images";
-import { Button } from "@rneui/base";
+import theme from "../../../theme/theme";
+import ImagenImport from "../../../theme/Images";
 import { StyleSheet, Text, View, Image, FlatList, ScrollView} from 'react-native';
-import { HeadbarCar } from "../../PruebaComponents/Headbar";
-import { MostrarProducto } from "../../Components/Products/CarProducts";
-import { consultarTest } from "../../Services/ProductosSrv";
-import { ProductsScreen } from "./productsStore.js/Products";
-import { ProductsNav } from "../../../App";
+import { HeadbarCar } from "../../../PruebaComponents/Headbar";
+import { MostrarProducto } from "../../../Components/Products/CarProducts";
+import { consultarTest } from "../../../Services/ProductosSrv";
 
 
-export const CarScreen  = ({navigation}) =>{
+export const ProductsScreen = () =>{
     const [productos,setProductos]=useState([])
 
     useEffect(()=>{
-        recuperarProductos();
+        recuperarProductosLunchs();
     },[]);
 
-    const recuperarProductos=()=>{
+    const recuperarProductosLunchs=()=>{
+        consultarTest(setProductos);
+    }
+    const recuperarProductosDrinks=()=>{
+        consultarTest(setProductos);
+    }
+    const recuperarProductosGifts=()=>{
         consultarTest(setProductos);
     }
 
@@ -59,42 +62,6 @@ export const CarScreen  = ({navigation}) =>{
                 {/* Footer of the Car Screen */}
                 <View style={styles.footer}>
 
-                    {/* Resume Productos (Add Products, total points) */}
-                    <View style={styles.resumeProducts}>
-                        <Button
-                            title="Más Productos"
-                            buttonStyle={[styles.buttonMoreProducts]}
-                            onPress= {()=>{ navigation.navigate("Products")}}
-                            containerStyle={{
-                                fontFamily: theme.fonts.text,
-                            }}
-                        />
-                        <View style={styles.centrado}>
-                            <Text style={styles.tipoLetra}>Total: 225 pts</Text>
-                        </View>
-                        
-
-                    </View>
-
-                    {/* Botones*/}
-                    <View style={styles.centrado}>
-                        <Button
-                            title="Canjear"
-                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.orangeSegunda}]}
-                            containerStyle={{
-                                paddingTop: 20,
-                                fontFamily: theme.fonts.text,
-                            }}
-                        />
-                        <Button
-                            title="Cancelar"
-                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda}]}
-                            containerStyle={{
-                                paddingTop: 10,
-                                fontFamily: theme.fonts.text,
-                            }}
-                        />
-                    </View>
                 </View>
             </View>
 
@@ -151,23 +118,5 @@ const styles = StyleSheet.create({
     },
     footer:{
         flex: 1.4,
-    },
-    resumeProducts:{
-        borderTopColor: theme.colors.greySegunda,
-        borderTopWidth: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginTop: 10,
-        paddingTop: 5,
-    },
-    buttonMoreProducts:{
-        width: (theme.screenSize.width-(theme.separation.horizontalSeparation*4))/2,
-        backgroundColor: theme.colors.blackSegunda,
-        borderRadius: 10
-    },
-    botones:{
-        width: theme.screenSize.width-(theme.separation.horizontalSeparation*2),
-        borderRadius: 8,
-        height: 45
     },
 });
