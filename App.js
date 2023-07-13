@@ -13,9 +13,10 @@ import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
 import {ScreenHome} from './app/screens/ScreenNav/Home';
 import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
 import { CarScreen } from "./app/screens/ScreenNav/Car";
-import {UserScreen} from './app/screens/ScreenNav/User'
+import {UserScreen} from './app/screens/ScreenNav/User';
 import theme from "./app/theme/theme";
-import { ProductsScreen } from "./app/screens/ScreenNav/productsStore.js/Products";
+import {ListGroups} from './app/screens/ScreenNav/Groups/ListGroups'
+
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
 //Firebase
@@ -26,7 +27,6 @@ import { loadConfiguration } from "./app/utils/FirebaseConfig";
 import { FontsLoader } from "./app/Components/FontsLoader";
 
 const StackManjActivos = createNativeStackNavigator();
-const ProductsStack = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
 
 const TabBar = createBottomTabNavigator();
@@ -40,9 +40,6 @@ const BarNavigator = () => {
         tabBarStyle: {
           backgroundColor: theme.colors.blackSegunda,
           height: 60,
-          borderTopEndRadius: 8,
-          borderTopStartRadius: 8,
-          paddingBottom: 5,
         },
         tabBarHideOnKeyboard: true,
         headerShown: false,
@@ -50,7 +47,7 @@ const BarNavigator = () => {
     >
       <TabBar.Screen
         name="Menu"
-        component={ComingSoon}
+        component={ListGroups}
         options={{
           headerShown: false,
           title: "Menu",
@@ -61,7 +58,7 @@ const BarNavigator = () => {
       />
       <TabBar.Screen
         name="Car"
-        component={ProductsNav}
+        component={CarScreen}
         options={{
           headerShown: false,
           title: "Carrito",
@@ -140,29 +137,6 @@ const ComingSoon = () => {
         }}
       />
     </StackManjActivos.Navigator>
-  );
-};
-
-export const ProductsNav = () => {
-  return (
-    <ProductsStack.Navigator>
-      <ProductsStack.Screen
-        name="CarBuy"
-        component={CarScreen}
-        options={{
-          title: "",
-          headerShown: false,
-        }}
-      />
-      <ProductsStack.Screen
-        name="Products"
-        component={ProductsScreen}
-        options={{
-          title: "",
-          headerShown: false,
-        }}
-      />
-    </ProductsStack.Navigator>
   );
 };
 

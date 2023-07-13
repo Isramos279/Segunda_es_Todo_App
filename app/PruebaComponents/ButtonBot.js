@@ -21,7 +21,6 @@ export const ButtonBot = () => {
                 <Image source={Dices} style={styles.img} />
             </TouchableOpacity>
         </View>
-
     )
 }
 
@@ -64,11 +63,6 @@ export const ButtonBotUser = () => {
                         </View>
 
                     </TouchableOpacity>
-
-
-
-
-
                 </View>
 
             </Card>
@@ -76,6 +70,7 @@ export const ButtonBotUser = () => {
         </View>
     )
 }
+
 
 
 const styles = StyleSheet.create({
@@ -88,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginRight: 10,
-        width: 165,
+        width: 157,
         height: 48,
         justifyContent: 'space-between'
 
@@ -124,4 +119,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-end',
     },
+
+
+
 });

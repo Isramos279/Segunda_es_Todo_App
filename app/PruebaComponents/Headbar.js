@@ -68,11 +68,11 @@ export const HeadbarHome = () => {
         <View style={styles.headbarHome}>
             <Image
                 source={logos.gris}
-                style={{ width: 60, height: 50.14925384521484 }}
+                style={{ width: 43, height: 40 }}
             />
             <Text style={styles.headText}>Hola Santiago, ¿Listo para tu cevichito?</Text>
             <View style={styles.centrado}>
-                <Icon name='bell' size={24} color='#F25B0C' type='ant-design' />
+                <Icon name='bell' size={20} color='#F25B0C' type='ant-design' />
             </View>
         </View>
     )
@@ -97,6 +97,28 @@ export const HeadbarUser = () => {
         </View>
     );
 };
+
+//Groups head bar
+
+export const HeadbarGroup = () => {
+    return (
+        <View style={styles.headbar}>
+
+            <View style={styles.centrado}>
+                <Icon name='angle-left' size={33} color='white' type='font-awesome-5' />
+            </View>
+
+            <View style={styles.centrado}>
+                <Text style={styles.TextoBarra}>Grupos</Text>
+            </View>
+
+            <View style={styles.centrado}>
+                <Icon name='beer' size={24} color='white' type='font-awesome-5' />
+            </View>
+        </View>
+    );
+};
+
 
 
 

@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   head: {
-    flex: 0.4,
+    flex: 0.3,
     justifyContent: 'flex-start',
     paddingTop: theme.separation.headSeparation,
   },
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     flex: 0.6,
     flexDirection: 'row',
     paddingBottom:15,
+
   },
   popular: {
     fontSize: 16,
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingBottom: 5,
   },
   buttonBot: {
     flex: 0.5,

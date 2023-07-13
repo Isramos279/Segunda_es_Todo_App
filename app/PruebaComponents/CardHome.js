@@ -50,9 +50,9 @@ export const CardHome = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 175,
-
+        width: 165,
         borderRadius: 5,
+        
     },
     title: {
         width: 137,
