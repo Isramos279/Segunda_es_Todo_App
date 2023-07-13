@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import logos from "../theme/logos";
 import theme from '../theme/theme';
@@ -62,6 +62,25 @@ export const HeadbarCanje = () => {
     );
 };
 
+//Barra de Productos
+export const HeadbarProductos = ({navigation}) => {
+    return (
+        <View style={styles.headbar}>
+            <TouchableOpacity onPress={()=>{navigation.goBack()}}>
+                <View style={styles.centrado}>
+                    <Icon name='angle-left' size={33} color='white' type='font-awesome-5' />
+                </View>
+            </TouchableOpacity>
+            <View style={styles.centrado}>
+                <Text style={styles.TextoBarra}>Canjear</Text>
+            </View>
+
+            <View style={styles.centrado}>
+                <Icon name='shopping-bag' size={24} color='white' type='font-awesome-5' />
+            </View>
+        </View>
+    );
+};
 
 export const HeadbarHome = () => {
     return (

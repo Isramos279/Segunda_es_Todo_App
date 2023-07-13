@@ -2,11 +2,28 @@ import { collection, doc, getDocs, setDoc, addDoc, getDoc, query, where } from '
 import imagen1 from "../../assets/Productos/Ceviche.png"
 import imagen2 from "../../assets/Productos/Camaron.png"
 import imagen3 from "../../assets/Productos/Agua.png"
+import { ImagenLunchCategory } from '../theme/Images'
 
 const productosQuemados = [
     {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#54423445"},
     {imagen:imagen2,  nombre : "Ceviche de camaron", puntos: 25,   cantidad: 1, codigo: "#54412345"},
     {imagen:imagen3,  nombre : "Agua",               puntos: 150,  cantidad: 1, codigo: "#54471238"},
+    {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#14423445"},
+    {imagen:imagen2,  nombre : "Ceviche de camaron", puntos: 25,   cantidad: 1, codigo: "#24412345"},
+    {imagen:imagen3,  nombre : "Agua",               puntos: 150,  cantidad: 1, codigo: "#34471238"},
+    {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#44423445"},
+    {imagen:imagen2,  nombre : "Ceviche de camaron", puntos: 25,   cantidad: 1, codigo: "#64412345"},
+    {imagen:imagen3,  nombre : "Agua",               puntos: 150,  cantidad: 1, codigo: "#74471238"},
+
+]
+
+const productsLunch = [
+    {imagen:ImagenLunchCategory.ceviche,           nombre : "Ceviche",                      puntos: 100,  cantidad: 1, codigo: "#2323565"},
+    {imagen:ImagenLunchCategory.cevicheMixto,      nombre : "Ceviche Jipijapa Mixto",       puntos: 150,  cantidad: 1, codigo: "#1234567"},
+    {imagen:ImagenLunchCategory.superBowl2Carnes,  nombre : "Super Bowl Dos Carnes",        puntos: 180,  cantidad: 1, codigo: "#2345678"},
+    {imagen:ImagenLunchCategory.superBowlCerdo,    nombre : "Super Bowl de Cerdo",          puntos: 170,  cantidad: 1, codigo: "#3456789"},
+    {imagen:ImagenLunchCategory.cevicheCamaron,    nombre : "Ceviche Jipijapa de Camarón",  puntos: 160,  cantidad: 1, codigo: "#4567891"},
+    {imagen:ImagenLunchCategory.superBowPollo,     nombre : "Super Bowl de Pollo",          puntos: 100,  cantidad: 1, codigo: "#5678912"},
 ]
 
 
@@ -39,6 +56,10 @@ export const consultar = async (fnsetPedidos) => {
 
 export const consultarTest = async (fnsetPedidos) => {
     fnsetPedidos(productosQuemados)
+}
+
+export const consultarProductosLunch = async (fnsetPedidos) => {
+    fnsetPedidos(productsLunch)
 }
 
 

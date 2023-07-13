@@ -6,8 +6,6 @@ import { StyleSheet, Text, View, Image, FlatList, ScrollView} from 'react-native
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
-import { ProductsScreen } from "./productsStore.js/Products";
-import { ProductsNav } from "../../../App";
 
 
 export const CarScreen  = ({navigation}) =>{

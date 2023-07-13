@@ -11,6 +11,7 @@ const theme = {
     redSegunda: "#F32409",
     greySegunda: "#DEDEDE",
     greylow: "#f0f0f0",
+    pink: "#FFC9AD",
     naranjaDegradadoSegunda: "linear-gradient(180deg, #FD5100 0%, #FEC20C 100%)",
   },
   fontSize: {

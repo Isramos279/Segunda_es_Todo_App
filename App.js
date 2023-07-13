@@ -16,7 +16,7 @@ import { CarScreen } from "./app/screens/ScreenNav/Car";
 import {UserScreen} from './app/screens/ScreenNav/User';
 import theme from "./app/theme/theme";
 import {ListGroups} from './app/screens/ScreenNav/Groups/ListGroups'
-
+import { ProductsScreen } from "./app/screens/ScreenNav/productsStore.js/Products";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
 //Firebase
@@ -26,7 +26,7 @@ import { loadConfiguration } from "./app/utils/FirebaseConfig";
 //Importaciones de fuente
 import { FontsLoader } from "./app/Components/FontsLoader";
 
-const StackManjActivos = createNativeStackNavigator();
+const StackProducts = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
 
 const TabBar = createBottomTabNavigator();
@@ -40,6 +40,9 @@ const BarNavigator = () => {
         tabBarStyle: {
           backgroundColor: theme.colors.blackSegunda,
           height: 60,
+          borderTopEndRadius: 10,
+          borderTopStartRadius: 10,
+          paddingBottom: 5,
         },
         tabBarHideOnKeyboard: true,
         headerShown: false,
@@ -58,7 +61,7 @@ const BarNavigator = () => {
       />
       <TabBar.Screen
         name="Car"
-        component={CarScreen}
+        component={ProductNavigator}
         options={{
           headerShown: false,
           title: "Carrito",
@@ -107,36 +110,27 @@ const BarNavigator = () => {
   );
 };
 
-const ComingSoon = () => {
+const ProductNavigator = () => {
   return (
-    <StackManjActivos.Navigator>
-      <StackManjActivos.Screen
-        name="ComingSoon"
-        component={()=>{
-          return(<View style={styles.container}>
-              <Text style={styles.texto}>Screen in process</Text>
-              <Button
-                title="Cerrar sesion"
-                onPress={cerrarSesion}
-                buttonStyle={{
-                  borderRadius: 10,
-                  backgroundColor: theme.colors.greySegunda,
-                  fontFamily: "Itim_400Regular",
-                }}
-                containerStyle={{
-                  width: 200,
-                  paddingTop: 40,
-                  fontFamily: "Itim_400Regular",
-                }}
-              />
-            </View>);
-        }}
+    <StackProducts.Navigator>
+      <StackProducts.Screen
+        name="CarScreen"
+        component={CarScreen}
         options={{
-          title: "ComingSoonScreen",
+          title: "CarProducts",
           headerShown: false,
         }}
       />
-    </StackManjActivos.Navigator>
+      <StackProducts.Screen
+        name="Products"
+        component={ProductsScreen}
+        options={{
+          title: "Category Products",
+          headerShown: false,
+        }}
+      />
+
+    </StackProducts.Navigator>
   );
 };
 
