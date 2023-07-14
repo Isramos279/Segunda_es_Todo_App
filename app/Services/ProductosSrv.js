@@ -17,29 +17,29 @@ const productosQuemados = [
 ]
 
 const productsLunch = [
-    {imagen:ImagenLunchCategory.ceviche,           nombre : "Ceviche",                      puntos: 100,  cantidad: 1, codigo: "#2323565"},
-    {imagen:ImagenLunchCategory.cevicheMixto,      nombre : "Ceviche Jipijapa Mixto",       puntos: 150,  cantidad: 1, codigo: "#1234567"},
-    {imagen:ImagenLunchCategory.superBowl2Carnes,  nombre : "Super Bowl Dos Carnes",        puntos: 180,  cantidad: 1, codigo: "#2345678"},
-    {imagen:ImagenLunchCategory.superBowlCerdo,    nombre : "Super Bowl de Cerdo",          puntos: 170,  cantidad: 1, codigo: "#3456789"},
-    {imagen:ImagenLunchCategory.cevicheCamaron,    nombre : "Ceviche Jipijapa de Camarón",  puntos: 160,  cantidad: 1, codigo: "#4567891"},
-    {imagen:ImagenLunchCategory.superBowPollo,     nombre : "Super Bowl de Pollo",          puntos: 100,  cantidad: 1, codigo: "#5678912"},
+    {imagen:ImagenLunchCategory.ceviche,           nombre : "Ceviche",                      puntos: 100,  cantidad: 1, description: "Ceviche sencillo", codigo: "#2323565"},
+    {imagen:ImagenLunchCategory.cevicheMixto,      nombre : "Ceviche Jipijapa Mixto",       puntos: 150,  cantidad: 1, description: "Camarón y Pescado", codigo: "#1234567"},
+    {imagen:ImagenLunchCategory.superBowl2Carnes,  nombre : "Super Bowl Dos Carnes",        puntos: 180,  cantidad: 1, description: "Elije entre Cerdo, Pollo, Carne y Chuleta", codigo: "#2345678"},
+    {imagen:ImagenLunchCategory.superBowlCerdo,    nombre : "Super Bowl de Cerdo",          puntos: 170,  cantidad: 1, description: "Cerdo bien sazonado con maduro y frejol", codigo: "#3456789"},
+    {imagen:ImagenLunchCategory.cevicheCamaron,    nombre : "Ceviche Jipijapa de Camarón",  puntos: 160,  cantidad: 1, description: "Camarón, aguacate, pepino", codigo: "#4567891"},
+    {imagen:ImagenLunchCategory.superBowPollo,     nombre : "Super Bowl de Pollo",          puntos: 100,  cantidad: 1, description: "Bowl de Pollo con salsa", codigo: "#5678912"},
 ]
 
 const productsDrinks = [
-    {imagen:ImagenDrinksCategory.cervezaPilsener,    nombre : "Cerveza Pilsener",           puntos: 100,  cantidad: 1, codigo: "#2323565"},
-    {imagen:ImagenDrinksCategory.sprite,             nombre : "Sprite",                     puntos: 150,  cantidad: 1, codigo: "#4567841"},
-    {imagen:ImagenDrinksCategory.cocaCola,           nombre : "Coca Cola",                  puntos: 180,  cantidad: 1, codigo: "#1657513"},
-    {imagen:ImagenDrinksCategory.fuztea,             nombre : "Fuztea",                     puntos: 170,  cantidad: 1, codigo: "#4876543"},
-    {imagen:ImagenDrinksCategory.michelada,          nombre : "Michelada",                  puntos: 160,  cantidad: 1, codigo: "#6575378"},
-    {imagen:ImagenDrinksCategory.fanta,              nombre : "Fanta",                      puntos: 160,  cantidad: 1, codigo: "#6423187"},
+    {imagen:ImagenDrinksCategory.cervezaPilsener,    nombre : "Cerveza Pilsener",           puntos: 100,  cantidad: 1, description: "Alcohol", codigo: "#2323565"},
+    {imagen:ImagenDrinksCategory.sprite,             nombre : "Sprite",                     puntos: 150,  cantidad: 1, description: "Gaseosa", codigo: "#4567841"},
+    {imagen:ImagenDrinksCategory.cocaCola,           nombre : "Coca Cola",                  puntos: 180,  cantidad: 1, description: "Gaseosa", codigo: "#1657513"},
+    {imagen:ImagenDrinksCategory.fuztea,             nombre : "Fuztea",                     puntos: 170,  cantidad: 1, description: "Bebida", codigo: "#4876543"},
+    {imagen:ImagenDrinksCategory.michelada,          nombre : "Michelada",                  puntos: 160,  cantidad: 1, description: "Alcohol", codigo: "#6575378"},
+    {imagen:ImagenDrinksCategory.fanta,              nombre : "Fanta",                      puntos: 160,  cantidad: 1, description: "Gaseosa", codigo: "#6423187"},
 ]
 
 const productsGifts = [
-    {imagen:ImagenGiftsCategory.balon,               nombre : "Balón",                      puntos: 100,  cantidad: 1, codigo: "#2323565"},
-    {imagen:ImagenGiftsCategory.tomatodos,           nombre : "Tomatodos",                  puntos: 150,  cantidad: 1, codigo: "#1234567"},
-    {imagen:ImagenGiftsCategory.buzo,                nombre : "Buzo",                       puntos: 180,  cantidad: 1, codigo: "#2345678"},
-    {imagen:ImagenGiftsCategory.mochila,             nombre : "Mochila",                    puntos: 170,  cantidad: 1, codigo: "#3456789"},
-    {imagen:ImagenGiftsCategory.mochilaDeportiva,    nombre : "Mochila Deportiva",          puntos: 160,  cantidad: 1, codigo: "#4567891"},
+    {imagen:ImagenGiftsCategory.balon,               nombre : "Balón",                      puntos: 100,  cantidad: 1, description: "Deporte", codigo: "#2323565"},
+    {imagen:ImagenGiftsCategory.tomatodos,           nombre : "Tomatodos",                  puntos: 150,  cantidad: 1, description: "Deporte", codigo: "#1234567"},
+    {imagen:ImagenGiftsCategory.buzo,                nombre : "Buzo",                       puntos: 180,  cantidad: 1, description: "Ropa", codigo: "#2345678"},
+    {imagen:ImagenGiftsCategory.mochila,             nombre : "Mochila",                    puntos: 170,  cantidad: 1, description: "Regalo", codigo: "#3456789"},
+    {imagen:ImagenGiftsCategory.mochilaDeportiva,    nombre : "Mochila Deportiva",          puntos: 160,  cantidad: 1, description: "Deporte", codigo: "#4567891"},
 ]
 
 export const guardar = (producto) => {

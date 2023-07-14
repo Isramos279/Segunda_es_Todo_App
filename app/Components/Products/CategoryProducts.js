@@ -1,25 +1,33 @@
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native';
 import theme from '../../theme/theme';
 import ImagenImport from '../../theme/Images';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const ShowCategoryProduct = ({item})=>{
     return(<View style={styles.tarjeta}>
-        <Image
-          source={item.imagen}
-          style={{ width: 80, height: 80,borderRadius: 8, flex: 1,}}
-          resizeMode="cover"
-        />
+        <View style={{flex: 1, justifyContent: 'center'}}>
+            <Image
+            source={item.imagen}
+            style={{ width: 85, height: 85,borderRadius: 8}}
+            resizeMode="cover"
+            />
+        </View>
+        
         <View style={styles.rightSide}>
-            <View style={styles.SpaceName}>
-                <Text style={[styles.texto,styles.nameProduct]}>{item.nombre}</Text>
+            <View style={styles.SpacePadding}>
+                <Text style={[styles.textBold,styles.nameProduct]}>{item.nombre}</Text>
             </View>
-            
-            <View style={styles.footer}>
-                <Text style={[styles.texto,styles.pointsProducto]}>Costo: {item.puntos} pts</Text>
-                <Image
-                    source={ImagenImport.addToCar}
-                    style={{ width: 25, height: 25, borderRadius: 5 }}
-                />
+
+            <View style={[styles.footer,styles.SpacePadding]}>
+                <View>
+                    <Text style={[styles.texto,styles.descriptionStyle]}>{item.description}</Text>
+                    <Text style={[styles.texto,styles.pointsProducto]}>Costo: {item.puntos} pts</Text>
+                </View>
+                <TouchableOpacity
+                    style={styles.button}
+                >
+                    <Icon name="plus" size={12} type="entypo" color={'white'} />
+                </TouchableOpacity>
             </View>
         </View>
         
@@ -44,7 +52,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     footer:{
-        paddingLeft: 19,
         flexDirection: "row",
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -52,14 +59,31 @@ const styles = StyleSheet.create({
     texto:{
         fontFamily: theme.fonts.text,
     },
-    SpaceName:{
+    textBold:{
+        fontFamily: theme.fonts.textBold,
+    },
+    SpacePadding:{
         paddingLeft: 12,
     },
     nameProduct:{
         fontSize: theme.fontSize.carProducts,
     },
+    descriptionStyle:{
+        fontSize: 12,
+        color: theme.colors.blackSegunda,
+        paddingRight: 35,
+    },
     pointsProducto:{
+        marginTop: 3,
         fontSize: theme.fontSize.pointsCarProductos,
         color: theme.colors.blackSegunda,
+    },
+    button:{
+        position: 'absolute',
+        right: 0,
+        backgroundColor: theme.colors.orangeSegunda,
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        borderRadius: 6,
     }
 })

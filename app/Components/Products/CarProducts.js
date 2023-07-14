@@ -11,7 +11,7 @@ export const MostrarProducto = ({item})=>{
         />
         <View style={styles.rightSide}>
             <View style={styles.SpaceName}>
-                <Text style={[styles.texto,styles.nameProduct]}>{item.nombre}</Text>
+                <Text style={[styles.textBold,styles.nameProduct]}>{item.nombre}</Text>
             </View>
             
             <View style={styles.footer}>
@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     },
     texto:{
         fontFamily: theme.fonts.text,
+    },
+    textBold:{
+        fontFamily: theme.fonts.textBold,
     },
     SpaceName:{
         paddingLeft: 12,

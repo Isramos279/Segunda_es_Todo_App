@@ -19,13 +19,14 @@ const theme = {
     title: 40,
     subtitle: 25,
     sizeBar: 29,
-    carProducts: 18,
+    carProducts: 16,
     pointsCarProductos: 14,
   },
   fonts: {
     main: "System",
     textItalic: "Lato_400Regular_Italic",
     text: "Lato_400Regular",
+    textBold: "Lato_700Bold"
   },
   fontWeight: {
     bold: "700",

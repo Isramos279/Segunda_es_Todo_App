@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import theme from "../../theme/theme";
 import ImagenImport from "../../theme/Images";
 import { Button } from "@rneui/base";
-import { StyleSheet, Text, View, Image, FlatList, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, ScrollView, Modal, Pressable, Alert, TouchableWithoutFeedback} from 'react-native';
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
-
+import LinearGradient from "react-native-linear-gradient";
+import { ModalAceptarPedido } from "../../Components/Modals";
 
 export const CarScreen  = ({navigation}) =>{
     const [productos,setProductos]=useState([])
+    const [modalCanjearVisible, setModalCanjearVisible] = useState(false);
 
     useEffect(()=>{
         recuperarProductos();
@@ -19,10 +21,27 @@ export const CarScreen  = ({navigation}) =>{
         consultarTest(setProductos);
     }
 
+    const ReceiveModalState = (modalCanjearVisible) => {
+        setModalCanjearVisible(modalCanjearVisible);
+      };
+
     return( 
     <View style={styles.container}>
         {/* Encabezado */}
         <HeadbarCar/>
+            
+        <Modal
+            animationType="none"
+            transparent={true}
+            visible={modalCanjearVisible}
+            onRequestClose={() => {setModalCanjearVisible(!modalCanjearVisible);}}
+        >
+            <TouchableWithoutFeedback onPress={() => setModalCanjearVisible(!modalCanjearVisible)}>
+                <View style={[styles.centeredView, { backgroundColor: 'rgba(0,0,0, 0.3)' }]}>
+                    <ModalAceptarPedido sendModalVisible={ReceiveModalState}/>
+                </View>
+            </TouchableWithoutFeedback>
+        </Modal>
 
         {/* Body's Screen */}
         <View style={styles.body}>
@@ -76,14 +95,16 @@ export const CarScreen  = ({navigation}) =>{
 
                     {/* Botones*/}
                     <View style={styles.centrado}>
-                        <Button
-                            title="Canjear"
-                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.orangeSegunda}]}
-                            containerStyle={{
-                                paddingTop: 20,
-                                fontFamily: theme.fonts.text,
-                            }}
-                        />
+                        <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} colors={['#FD5100', '#FEC20C']} style={[styles.botones,{marginTop:20}]}>
+                            <Button
+                                title="Canjear"
+                                onPress={()=>{setModalCanjearVisible(true)}}
+                                buttonStyle={[styles.botones,{backgroundColor: "transparent"}]}
+                                containerStyle={{
+                                    fontFamily: theme.fonts.text,
+                                }}
+                            />
+                        </LinearGradient>
                         <Button
                             title="Cancelar"
                             buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda}]}
@@ -168,4 +189,11 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         height: 45
     },
+
+    // Modal
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
 });
