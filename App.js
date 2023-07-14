@@ -17,6 +17,7 @@ import { UserScreen } from './app/screens/ScreenNav/User';
 import theme from "./app/theme/theme";
 import { ListGroups } from './app/screens/ScreenNav/Groups/ListGroups'
 import { Groups } from './app/screens/ScreenNav/Groups/Groups'
+import {SupGroups} from './app/screens/ScreenNav/Groups/SupGroups'
 import { ProductsScreen } from "./app/screens/ScreenNav/productsStore.js/Products";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
@@ -127,6 +128,14 @@ const GroupsNavigator = () => {
         component={Groups}
         options={{
           title: "GroupsMembers",
+          headerShown: false,
+        }}
+      />
+      <GroupStack.Screen
+        name='SupGroups'
+        component={SupGroups}
+        options={{
+          title: "Sup_Groups",
           headerShown: false,
         }}
       />

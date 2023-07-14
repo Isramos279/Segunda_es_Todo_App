@@ -8,7 +8,7 @@ import { Button } from '@rneui/themed';
 
 
 
-export const Groups = () => {
+export const Groups = ({navigation}) => {
 
     return (
         <View style={styles.container}>
@@ -40,7 +40,7 @@ export const Groups = () => {
 
             <View style={styles.buttonBot}>
 
-                <Button color={theme.colors.blackSegunda} buttonStyle={styles.buttonBielas} >Pon para las bielas</Button>
+                <Button color={theme.colors.blackSegunda} buttonStyle={styles.buttonBielas} onPress={()=>{navigation.navigate("SupGroups")}}>Pon para las bielas</Button>
 
             </View>
 
