@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
-import { HeadbarHome} from '../../PruebaComponents/Headbar';
+import { HeadbarHome } from '../../PruebaComponents/Headbar';
 import { CardHome } from '../../PruebaComponents/CardHome';
 import { Banner } from '../../PruebaComponents/Banner';
 import { ButtonMore } from '../../PruebaComponents/buttonMoreHome';
@@ -11,11 +11,14 @@ import theme from "../../theme/theme";
 export const ScreenHome = () => {
   return (
     <View style={styles.container}>
-      
+
       <View style={styles.head}>
         <HeadbarHome />
       </View>
-      <View style={styles.banner}><Banner /></View>
+
+      <View style={styles.banner}>
+        <Banner />
+      </View>
 
       <View style={styles.text}>
         <Text style={styles.popular}>
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 0.6,
     flexDirection: 'row',
-    paddingBottom:15,
+    paddingBottom: 15,
 
   },
   popular: {

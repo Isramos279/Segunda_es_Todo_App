@@ -9,13 +9,14 @@ import { StatusBar } from "expo-status-bar";
 import { LoginForm } from "./app/screens/LoginScreen/LoginScreen";
 import { Registrar } from "./app/screens/LoginScreen/RegistrarUsuario";
 import { ReseteoForm } from "./app/screens/LoginScreen/ReseteoCorreoScreen";
-import {cerrarSesion, RecuperarUsuario,} from "./app/Services/AutenticacionSrv";
-import {ScreenHome} from './app/screens/ScreenNav/Home';
+import { cerrarSesion, RecuperarUsuario, } from "./app/Services/AutenticacionSrv";
+import { ScreenHome } from './app/screens/ScreenNav/Home';
 import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
 import { CarScreen } from "./app/screens/ScreenNav/Car";
-import {UserScreen} from './app/screens/ScreenNav/User';
+import { UserScreen } from './app/screens/ScreenNav/User';
 import theme from "./app/theme/theme";
-import {ListGroups} from './app/screens/ScreenNav/Groups/ListGroups'
+import { ListGroups } from './app/screens/ScreenNav/Groups/ListGroups'
+import { Groups } from './app/screens/ScreenNav/Groups/Groups'
 import { ProductsScreen } from "./app/screens/ScreenNav/productsStore.js/Products";
 //Retorno de pedido
 import { PedidoContext } from "./app/context/PedidosContext";
@@ -28,7 +29,7 @@ import { FontsLoader } from "./app/Components/FontsLoader";
 
 const StackProducts = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
-
+const GroupStack = createNativeStackNavigator();
 const TabBar = createBottomTabNavigator();
 
 const BarNavigator = () => {
@@ -50,11 +51,11 @@ const BarNavigator = () => {
     >
       <TabBar.Screen
         name="Menu"
-        component={ListGroups}
+        component={GroupsNavigator}
         options={{
           headerShown: false,
           title: "Menu",
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({ color }) => {
             return <Icon name="menu" size={24} color={color} type="Entypo" />;
           },
         }}
@@ -65,7 +66,7 @@ const BarNavigator = () => {
         options={{
           headerShown: false,
           title: "Carrito",
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({ color }) => {
             return <Icon name="shoppingcart" size={24} color={color} type="ant-design" />;
           },
         }}
@@ -76,7 +77,7 @@ const BarNavigator = () => {
         options={{
           headerShown: false,
           title: "Home",
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({ color }) => {
             return <Icon name="home" size={24} color={color} type="Entypo" />;
           },
         }}
@@ -87,7 +88,7 @@ const BarNavigator = () => {
         options={{
           headerShown: false,
           title: "canjear",
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({ color }) => {
             return <Icon name="gift" size={24} color={color} type="ant-design" />;
           },
         }}
@@ -99,7 +100,7 @@ const BarNavigator = () => {
         options={{
           headerShown: false,
           title: "usuario",
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({ color }) => {
             return (
               <Icon name="user" size={24} color={color} type="ant-design" />
             );
@@ -109,6 +110,30 @@ const BarNavigator = () => {
     </TabBar.Navigator>
   );
 };
+
+const GroupsNavigator = () => {
+  return (
+    <GroupStack.Navigator>
+      <GroupStack.Screen
+        name='ListGroups'
+        component={ListGroups}
+        options={{
+          title: "List_Groups",
+          headerShown: false,
+        }}
+      />
+      <GroupStack.Screen
+        name='Groups'
+        component={Groups}
+        options={{
+          title: "GroupsMembers",
+          headerShown: false,
+        }}
+      />
+
+    </GroupStack.Navigator>
+  )
+}
 
 const ProductNavigator = () => {
   return (
@@ -237,7 +262,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     dColor: "gray",
   },
-  texto:{
+  texto: {
     fontFamily: "Lato_400Regular_Italic"
   }
 });

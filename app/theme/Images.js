@@ -30,6 +30,18 @@ import buzo from '../../assets/Productos/Gifts/buzo.jpg'
 import mochila from '../../assets/Productos/Gifts/mochila.jpg'
 import mochilaDeportiva from '../../assets/Productos/Gifts/mochilaDeportiva.jpg'
 
+//UserExamples
+
+import User1 from '../../assets/imgEjemplos/user1.png'
+import User2 from '../../assets/imgEjemplos/user2.png'
+import User3 from '../../assets/imgEjemplos/user3.png'
+
+export const ImageUsersImport={
+    user1: User1,
+    user2: User2,
+    user3: User3,
+}
+
 export const ImagenImport={
     coin: Icono_coin,
     bookmark: bookmark,

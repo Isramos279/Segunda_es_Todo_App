@@ -7,7 +7,7 @@ import { Button } from '@rneui/themed';
 
 
 
-export const ListGroups = () => {
+export const ListGroups = ({ navigation }) => {
     return (
         <View style={styles.container}>
 
@@ -29,14 +29,20 @@ export const ListGroups = () => {
 
 
                 <ScrollView style={styles.card}>
-                    <GroupCard />
-                    <GroupCard />
-                    <GroupCard />
+                    <TouchableOpacity onPress={()=>{navigation.navigate("Groups")}}>
+                        <GroupCard />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <GroupCard />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <GroupCard />
+                    </TouchableOpacity>
                 </ScrollView>
 
                 <View style={styles.ButtonContainer}>
-                   <Button color={theme.colors.blackSegunda} buttonStyle={styles.button} >Crear grupo Nuevo</Button>
-                   <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button}>Unirse a un grupo</Button>
+                    <Button color={theme.colors.blackSegunda} buttonStyle={styles.button} >Crear grupo Nuevo</Button>
+                    <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button}>Unirse a un grupo</Button>
                 </View>
 
             </View>
@@ -58,12 +64,12 @@ const styles = StyleSheet.create({
 
     },
     head: {
-  
+
         justifyContent: 'flex-start',
         paddingTop: theme.separation.headSeparation,
     },
     body: {
-       
+
         paddingHorizontal: theme.separation.horizontalSeparation,
 
     },
@@ -85,12 +91,12 @@ const styles = StyleSheet.create({
         width: 300,
         marginBottom: 5,
         height: 50,
-        
+
     },
     ButtonContainer: {
         marginTop: 30,
     },
-  
+
 
 
 });

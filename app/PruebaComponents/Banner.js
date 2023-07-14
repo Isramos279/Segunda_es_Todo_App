@@ -7,7 +7,7 @@ export const Banner =() =>{
     let screen = Dimensions.get('window');
     let width = screen.width;
 
-    let bannerWith = width * 0.9;
+    let bannerWith = width * 0.88;
 
     const images = [
         { id: 1, source: Banner1 },
