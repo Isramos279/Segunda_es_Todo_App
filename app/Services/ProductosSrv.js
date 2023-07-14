@@ -2,7 +2,7 @@ import { collection, doc, getDocs, setDoc, addDoc, getDoc, query, where } from '
 import imagen1 from "../../assets/Productos/Ceviche.png"
 import imagen2 from "../../assets/Productos/Camaron.png"
 import imagen3 from "../../assets/Productos/Agua.png"
-import { ImagenLunchCategory } from '../theme/Images'
+import { ImagenLunchCategory, ImagenDrinksCategory, ImagenGiftsCategory } from '../theme/Images'
 
 const productosQuemados = [
     {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#54423445"},
@@ -14,7 +14,6 @@ const productosQuemados = [
     {imagen:imagen1,  nombre : "Ceviche completo",   puntos: 100,  cantidad: 1, codigo: "#44423445"},
     {imagen:imagen2,  nombre : "Ceviche de camaron", puntos: 25,   cantidad: 1, codigo: "#64412345"},
     {imagen:imagen3,  nombre : "Agua",               puntos: 150,  cantidad: 1, codigo: "#74471238"},
-
 ]
 
 const productsLunch = [
@@ -26,6 +25,22 @@ const productsLunch = [
     {imagen:ImagenLunchCategory.superBowPollo,     nombre : "Super Bowl de Pollo",          puntos: 100,  cantidad: 1, codigo: "#5678912"},
 ]
 
+const productsDrinks = [
+    {imagen:ImagenDrinksCategory.cervezaPilsener,    nombre : "Cerveza Pilsener",           puntos: 100,  cantidad: 1, codigo: "#2323565"},
+    {imagen:ImagenDrinksCategory.sprite,             nombre : "Sprite",                     puntos: 150,  cantidad: 1, codigo: "#4567841"},
+    {imagen:ImagenDrinksCategory.cocaCola,           nombre : "Coca Cola",                  puntos: 180,  cantidad: 1, codigo: "#1657513"},
+    {imagen:ImagenDrinksCategory.fuztea,             nombre : "Fuztea",                     puntos: 170,  cantidad: 1, codigo: "#4876543"},
+    {imagen:ImagenDrinksCategory.michelada,          nombre : "Michelada",                  puntos: 160,  cantidad: 1, codigo: "#6575378"},
+    {imagen:ImagenDrinksCategory.fanta,              nombre : "Fanta",                      puntos: 160,  cantidad: 1, codigo: "#6423187"},
+]
+
+const productsGifts = [
+    {imagen:ImagenGiftsCategory.balon,               nombre : "Balón",                      puntos: 100,  cantidad: 1, codigo: "#2323565"},
+    {imagen:ImagenGiftsCategory.tomatodos,           nombre : "Tomatodos",                  puntos: 150,  cantidad: 1, codigo: "#1234567"},
+    {imagen:ImagenGiftsCategory.buzo,                nombre : "Buzo",                       puntos: 180,  cantidad: 1, codigo: "#2345678"},
+    {imagen:ImagenGiftsCategory.mochila,             nombre : "Mochila",                    puntos: 170,  cantidad: 1, codigo: "#3456789"},
+    {imagen:ImagenGiftsCategory.mochilaDeportiva,    nombre : "Mochila Deportiva",          puntos: 160,  cantidad: 1, codigo: "#4567891"},
+]
 
 export const guardar = (producto) => {
     console.log(global.dbCon);
@@ -62,6 +77,13 @@ export const consultarProductosLunch = async (fnsetPedidos) => {
     fnsetPedidos(productsLunch)
 }
 
+export const consultarProductosDrinks = async (fnsetPedidos) => {
+    fnsetPedidos(productsDrinks)
+}
+
+export const consultarProductosGifts = async (fnsetPedidos) => {
+    fnsetPedidos(productsGifts)
+}
 
 export const consultarProducto = async () => {
     //console.log("globla",global.dbCon);

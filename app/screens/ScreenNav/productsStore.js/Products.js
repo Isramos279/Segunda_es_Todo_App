@@ -4,7 +4,7 @@ import ImagenImport from "../../../theme/Images";
 import { StyleSheet, Text, View, Image, FlatList, ScrollView} from 'react-native';
 import { HeadbarProductos } from "../../../PruebaComponents/Headbar";
 import { ShowCategoryProduct } from "../../../Components/Products/CategoryProducts";
-import { consultarTest, consultarProductosLunch} from "../../../Services/ProductosSrv";
+import { consultarProductosLunch, consultarProductosDrinks, consultarProductosGifts} from "../../../Services/ProductosSrv";
 import { ButtonCategoryProducts } from "../../../Components/Products/ButtonsStore";
 
 export const ProductsScreen = ({navigation}) =>{
@@ -24,10 +24,10 @@ export const ProductsScreen = ({navigation}) =>{
         consultarProductosLunch(setProductos);
     }
     const recuperarProductosDrinks=()=>{
-        consultarTest(setProductos);
+        consultarProductosDrinks(setProductos);
     }
     const recuperarProductosGifts=()=>{
-        consultarTest(setProductos);
+        consultarProductosGifts(setProductos);
     }
 
     const RecibeCategory = (category) => {

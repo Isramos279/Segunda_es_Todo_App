@@ -15,6 +15,21 @@ import superBowCer from '../../assets/Productos/Lunchs/superBowlCerdo.png'
 import cevicheJipijapaCam from '../../assets/Productos/Lunchs/cevicheJipijapaCamaron.png'
 import superBowPollo from '../../assets/Productos/Lunchs/superBowlPollo.png'
 
+// Drinks
+import cervezaPilsener from '../../assets/Productos/Drinks/pilsener.jpg'
+import sprite from '../../assets/Productos/Drinks/spritMini.jpg'
+import cocaCola from '../../assets/Productos/Drinks/cocaColaMini.jpg'
+import fuztea from '../../assets/Productos/Drinks/fuzetea.jpg'
+import michelada from '../../assets/Productos/Drinks/michelada.jpg'
+import fanta from '../../assets/Productos/Drinks/fanta.jpg'
+
+// Gifts
+import balon from '../../assets/Productos/Gifts/balonFutbol.jpg'
+import tomatodos from '../../assets/Productos/Gifts/tomatodos.jpg'
+import buzo from '../../assets/Productos/Gifts/buzo.jpg'
+import mochila from '../../assets/Productos/Gifts/mochila.jpg'
+import mochilaDeportiva from '../../assets/Productos/Gifts/mochilaDeportiva.jpg'
+
 export const ImagenImport={
     coin: Icono_coin,
     bookmark: bookmark,
@@ -32,6 +47,23 @@ export const ImagenLunchCategory={
     superBowlCerdo: superBowCer,
     cevicheCamaron: cevicheJipijapaCam,
     superBowPollo: superBowPollo,
+}
+
+export const ImagenDrinksCategory={
+    cervezaPilsener,
+    sprite,
+    cocaCola,
+    fuztea,
+    michelada,
+    fanta,
+}
+
+export const ImagenGiftsCategory={
+    balon,
+    tomatodos,
+    buzo,
+    mochila,
+    mochilaDeportiva,
 }
 
 export const IconImport={
