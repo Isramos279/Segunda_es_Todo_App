@@ -13,7 +13,7 @@ export const ProductsScreen = ({navigation}) =>{
 
 
     useEffect(()=>{
-        recuperarProductosLunchs();
+        setCategory("lunch")
     },[]);
 
     useEffect(()=>{
