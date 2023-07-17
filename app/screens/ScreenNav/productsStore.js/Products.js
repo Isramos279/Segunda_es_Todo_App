@@ -6,6 +6,7 @@ import { HeadbarProductos } from "../../../PruebaComponents/Headbar";
 import { ShowCategoryProduct } from "../../../Components/Products/CategoryProducts";
 import { consultarProductosLunch, consultarProductosDrinks, consultarProductosGifts} from "../../../Services/ProductosSrv";
 import { ButtonCategoryProducts } from "../../../Components/Products/ButtonsStore";
+import { UsersPoints } from "../../../Components/User/UserData";
 
 export const ProductsScreen = ({navigation}) =>{
     const [productos,setProductos]=useState([])
@@ -54,14 +55,8 @@ export const ProductsScreen = ({navigation}) =>{
                     <View>
                         <Text style={styles.tipoLetra}>Tus puntos:</Text>
                     </View>
+                    <UsersPoints marTop={5} paddVert={3}/>
                     
-                    <View style={[styles.puntos]}>
-                        <Image
-                            source={ImagenImport.coin}
-                            style={{ width: 20, height: 20 }}
-                        />
-                        <Text style={styles.cantidadPuntos}>200</Text>
-                    </View>
                 </View>
             </View>
             

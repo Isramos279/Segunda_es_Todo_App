@@ -8,6 +8,7 @@ import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
 import LinearGradient from "react-native-linear-gradient";
 import { ModalAceptarPedido, ModalEliminarPedido } from "../../Components/Modals";
+import { UsersPoints } from "../../Components/User/UserData";
 
 export const CarScreen  = ({navigation}) =>{
     const [productos,setProductos]=useState([])
@@ -72,14 +73,7 @@ export const CarScreen  = ({navigation}) =>{
                 <View style={styles.centrado}>
                     <Text style={styles.tipoLetra}>Tus puntos:</Text>
                 </View>
-                
-                <View style={styles.puntos}>
-                    <Image
-                        source={ImagenImport.coin}
-                        style={{ width: 20, height: 20 }}
-                    />
-                    <Text style={styles.cantidadPuntos}>200</Text>
-                </View>
+                <UsersPoints />
             </View>
 
             {/* Screen Button after show the points */}
@@ -170,17 +164,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         height: 30,
-    },
-    puntos:{
-        backgroundColor: theme.colors.blackSegunda,
-        borderRadius: 50,
-        width: 80,
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: "space-evenly",
-    },
-    cantidadPuntos:{
-        color: theme.colors.whiteSegunda,
     },
     listProducts:{
         flex: 3,
