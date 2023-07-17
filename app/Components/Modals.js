@@ -1,21 +1,100 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
+import { Button } from "@rneui/themed";
 import theme from '../theme/theme';
 
 export const ModalAceptarPedido = ({sendModalVisible}) => {
-
-
   return (
     <View style={styles.modalView}>
+
         <View style={styles.header}>
             <Text style={[styles.textHeader,styles.textStyle]}>¿Está segur@ de canjear tus puntos?</Text>
         </View>
+
         <View style={styles.body}>
-            <Text style={[styles.modalText,styles.textStyle]}>¿Está seguro de continuar?</Text>
             <Text style={[styles.modalText,styles.textStyle]}>Recuerde que una vez aceptado no podrá modificar su pedido. (No hay rembolso)</Text>
+            <Text style={[styles.modalText,styles.textStyle]}>¿Está seguro de continuar?</Text>
         </View>
-        {/* <Pressable style={[styles.button, styles.buttonClose]}  onPress={() => sendModalVisible(false)}>
-            <Text style={styles.textStyle}>Hide Modal</Text>
-        </Pressable> */}
+
+        <View style={styles.buttons}>
+            <Button
+              title='Si'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.orangeSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+            <Button
+              title='No'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.redSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+        </View>
+        
+    </View>
+  );
+}
+
+export const ModalEliminarPedido = ({sendModalVisible}) => {
+  return (
+    <View style={styles.modalView}>
+
+        <View style={styles.header}>
+            <Text style={[styles.textHeader,styles.textStyle]}>¿Está segur@ de eliminarán?</Text>
+        </View>
+
+        <View style={styles.body}>
+          <Text style={[styles.modalText,styles.textStyle]}>
+            Recuerde que una vez aceptado se eliminarán los productos del carro
+          </Text>
+          <Text style={[styles.modalText,styles.textStyle]}>¿Está seguro de continuar?</Text>
+        </View>
+
+        <View style={styles.buttons}>
+            <Button
+              title='Si'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.orangeSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+            <Button
+              title='No'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.redSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+        </View>
+        
+    </View>
+  );
+}
+
+export const ModalLogOut   = ({sendModalVisible}) => {
+  return (
+    <View style={styles.modalView}>
+
+        <View style={styles.header}>
+            <Text style={[styles.textHeader,styles.textStyle]}>¿ ESTÁ SEGURO?</Text>
+        </View>
+
+        <View style={styles.body}>
+            <Text style={[styles.modalText,styles.textStyle]}>Serás enviado a la pantalla de inicio de sesión </Text>
+        </View>
+
+        <View style={styles.buttons}>
+            <Button
+              title='Aceptar'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.orangeSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+            <Button
+              title='Volver'
+              titleStyle={styles.tittleButton}
+              buttonStyle={[styles.individualButton,{backgroundColor: theme.colors.redSegunda}]}
+              onPress={()=>{sendModalVisible(false)}}
+            />
+        </View>
+        
     </View>
   );
 }
@@ -24,7 +103,8 @@ const styles = StyleSheet.create({
     modalView: {
         backgroundColor: 'white',
         borderRadius: 10,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        width: theme.ViewSize.width,
       },
       header: {
         alignItems: 'center',
@@ -38,6 +118,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: theme.colors.whiteSegunda
       },
+      body:{
+        paddingTop: 10,
+      },
       textStyle: {
         fontFamily: theme.fonts.text
       },
@@ -45,5 +128,19 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         textAlign: 'center',
         color: theme.colors.blackSegunda,
+        paddingHorizontal: 30,  
       },
+      buttons:{
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        paddingBottom: 15,
+      },
+      individualButton:{
+        width: 80,
+        borderRadius: 10,
+      },
+      tittleButton:{
+        fontSize: theme.fontSize.modalButtons,
+        fontFamily: theme.fonts.text,
+      }
 });

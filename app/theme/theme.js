@@ -19,8 +19,12 @@ const theme = {
     title: 40,
     subtitle: 25,
     sizeBar: 29,
+    //CarScreen
     carProducts: 16,
+    carButtons: 18,
     pointsCarProductos: 14,
+    //Modals
+    modalButtons: 20,
   },
   fonts: {
     main: "System",
@@ -44,6 +48,9 @@ const theme = {
   screenSize:{
     width: widthScreen,
     height: heightScreen,
+  },
+  ViewSize:{
+    width: (widthScreen-(widthScreen * 0.055)*2),
   }
 };
 export default theme;

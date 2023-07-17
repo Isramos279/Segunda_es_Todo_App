@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import theme from "../../theme/theme";
 import ImagenImport from "../../theme/Images";
-import { Button } from "@rneui/base";
+import { Button } from "@rneui/themed";
 import { StyleSheet, Text, View, Image, FlatList, ScrollView, Modal, Pressable, Alert, TouchableWithoutFeedback} from 'react-native';
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
 import LinearGradient from "react-native-linear-gradient";
-import { ModalAceptarPedido } from "../../Components/Modals";
+import { ModalAceptarPedido, ModalEliminarPedido } from "../../Components/Modals";
 
 export const CarScreen  = ({navigation}) =>{
     const [productos,setProductos]=useState([])
     const [modalCanjearVisible, setModalCanjearVisible] = useState(false);
+    const [modalCancelarVisible, setModalCancelarVisible] = useState(false);
+    
 
     useEffect(()=>{
         recuperarProductos();
@@ -21,8 +23,12 @@ export const CarScreen  = ({navigation}) =>{
         consultarTest(setProductos);
     }
 
-    const ReceiveModalState = (modalCanjearVisible) => {
+    const ReceiveModalStateCanjear = (modalCanjearVisible) => {
         setModalCanjearVisible(modalCanjearVisible);
+      };
+
+      const ReceiveModalStateCancelar = (modalCanjearVisible) => {
+        setModalCancelarVisible(modalCanjearVisible);
       };
 
     return( 
@@ -38,9 +44,24 @@ export const CarScreen  = ({navigation}) =>{
         >
             <TouchableWithoutFeedback onPress={() => setModalCanjearVisible(!modalCanjearVisible)}>
                 <View style={[styles.centeredView, { backgroundColor: 'rgba(0,0,0, 0.3)' }]}>
-                    <ModalAceptarPedido sendModalVisible={ReceiveModalState}/>
+                    <ModalAceptarPedido sendModalVisible={ReceiveModalStateCanjear}/>
                 </View>
             </TouchableWithoutFeedback>
+
+        </Modal>
+
+        <Modal
+            animationType="none"
+            transparent={true}
+            visible={modalCancelarVisible}
+            onRequestClose={() => {setModalCancelarVisible(!modalCancelarVisible);}}
+        >
+            <TouchableWithoutFeedback onPress={() => setModalCancelarVisible(!modalCancelarVisible)}>
+                <View style={[styles.centeredView, { backgroundColor: 'rgba(0,0,0, 0.3)' }]}>
+                    <ModalEliminarPedido sendModalVisible={ReceiveModalStateCancelar}/>
+                </View>
+            </TouchableWithoutFeedback>
+
         </Modal>
 
         {/* Body's Screen */}
@@ -78,14 +99,15 @@ export const CarScreen  = ({navigation}) =>{
 
                     {/* Resume Productos (Add Products, total points) */}
                     <View style={styles.resumeProducts}>
-                        <Button
-                            title="Más Productos"
-                            buttonStyle={[styles.buttonMoreProducts]}
-                            onPress= {()=>{ navigation.navigate("Products")}}
-                            containerStyle={{
-                                fontFamily: theme.fonts.text,
-                            }}
-                        />
+                        <View style={styles.centrado}>
+                            <Button
+                                title="Más Productos"
+                                buttonStyle={[styles.buttonMoreProducts]}
+                                onPress= {()=>{ navigation.navigate("Products")}}
+                                titleStyle={styles.tipoLetraButtons}
+                            />
+                        </View>
+                        
                         <View style={styles.centrado}>
                             <Text style={styles.tipoLetra}>Total: 225 pts</Text>
                         </View>
@@ -100,18 +122,14 @@ export const CarScreen  = ({navigation}) =>{
                                 title="Canjear"
                                 onPress={()=>{setModalCanjearVisible(true)}}
                                 buttonStyle={[styles.botones,{backgroundColor: "transparent"}]}
-                                containerStyle={{
-                                    fontFamily: theme.fonts.text,
-                                }}
+                                titleStyle={styles.tipoLetraButtons}
                             />
                         </LinearGradient>
                         <Button
                             title="Cancelar"
-                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda}]}
-                            containerStyle={{
-                                paddingTop: 10,
-                                fontFamily: theme.fonts.text,
-                            }}
+                            onPress={()=>{setModalCancelarVisible(true)}}
+                            buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda, marginTop: 10}]}
+                            titleStyle={styles.tipoLetraButtons}
                         />
                     </View>
                 </View>
@@ -172,6 +190,7 @@ const styles = StyleSheet.create({
         flex: 1.4,
     },
     resumeProducts:{
+        flex: 1,
         borderTopColor: theme.colors.greySegunda,
         borderTopWidth: 1,
         flexDirection: "row",
@@ -180,7 +199,6 @@ const styles = StyleSheet.create({
         paddingTop: 5,
     },
     buttonMoreProducts:{
-        width: (theme.screenSize.width-(theme.separation.horizontalSeparation*4))/2,
         backgroundColor: theme.colors.blackSegunda,
         borderRadius: 10
     },
@@ -188,6 +206,10 @@ const styles = StyleSheet.create({
         width: theme.screenSize.width-(theme.separation.horizontalSeparation*2),
         borderRadius: 8,
         height: 45
+    },
+    tipoLetraButtons:{
+        fontFamily: theme.fonts.text,
+        fontSize: theme.fontSize.carButtons,
     },
 
     // Modal
