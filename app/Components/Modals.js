@@ -2,17 +2,17 @@ import { StyleSheet, Text, View} from 'react-native';
 import { Button } from "@rneui/themed";
 import theme from '../theme/theme';
 
+
 export const ModalAceptarPedido = ({sendModalVisible}) => {
   return (
     <View style={styles.modalView}>
 
         <View style={styles.header}>
-            <Text style={[styles.textHeader,styles.textStyle]}>¿Está segur@ de canjear tus puntos?</Text>
+            <Text style={[styles.textHeader,styles.textStyle]}>¿Está seguro de canjear tus puntos?</Text>
         </View>
 
         <View style={styles.body}>
-            <Text style={[styles.modalText,styles.textStyle]}>Recuerde que una vez aceptado no podrá modificar su pedido. (No hay rembolso)</Text>
-            <Text style={[styles.modalText,styles.textStyle]}>¿Está seguro de continuar?</Text>
+            <Text style={[styles.modalText,styles.textStyle]}>Recuerde que una vez aceptado no podrá modificar su pedido.</Text>
         </View>
 
         <View style={styles.buttons}>
@@ -31,22 +31,20 @@ export const ModalAceptarPedido = ({sendModalVisible}) => {
         </View>
         
     </View>
-  );
-}
+  );}
 
 export const ModalEliminarPedido = ({sendModalVisible}) => {
   return (
     <View style={styles.modalView}>
 
         <View style={styles.header}>
-            <Text style={[styles.textHeader,styles.textStyle]}>¿Está segur@ de eliminarán?</Text>
+            <Text style={[styles.textHeader,styles.textStyle]}>¿Está seguro de eliminar?</Text>
         </View>
 
         <View style={styles.body}>
           <Text style={[styles.modalText,styles.textStyle]}>
-            Recuerde que una vez aceptado se eliminarán los productos del carro
+            Recuerde que una vez aceptado se eliminarán los productos del carrito
           </Text>
-          <Text style={[styles.modalText,styles.textStyle]}>¿Está seguro de continuar?</Text>
         </View>
 
         <View style={styles.buttons}>
@@ -65,8 +63,7 @@ export const ModalEliminarPedido = ({sendModalVisible}) => {
         </View>
         
     </View>
-  );
-}
+  );}
 
 export const ModalLogOut   = ({sendModalVisible}) => {
   return (
@@ -96,8 +93,7 @@ export const ModalLogOut   = ({sendModalVisible}) => {
         </View>
         
     </View>
-  );
-}
+  );}
 
 const styles = StyleSheet.create({
     modalView: {
@@ -142,5 +138,5 @@ const styles = StyleSheet.create({
       tittleButton:{
         fontSize: theme.fontSize.modalButtons,
         fontFamily: theme.fonts.text,
-      }
+      },
 });

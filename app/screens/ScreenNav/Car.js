@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import theme from "../../theme/theme";
-import ImagenImport from "../../theme/Images";
 import { Button } from "@rneui/themed";
-import { StyleSheet, Text, View, Image, FlatList, ScrollView, Modal, Pressable, Alert, TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, Text, View,FlatList,Modal,TouchableWithoutFeedback} from 'react-native';
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
@@ -120,7 +119,7 @@ export const CarScreen  = ({navigation}) =>{
                             />
                         </LinearGradient>
                         <Button
-                            title="Cancelar"
+                            title="Eliminar Productos"
                             onPress={()=>{setModalCancelarVisible(true)}}
                             buttonStyle={[styles.botones,{backgroundColor: theme.colors.blackSegunda, marginTop: 10}]}
                             titleStyle={styles.tipoLetraButtons}
