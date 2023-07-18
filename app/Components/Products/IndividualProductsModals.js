@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View} from 'react-native';
 import { Button } from "@rneui/themed";
-import theme from '../theme/theme';
+import theme from '../../theme/theme';
 
 
-export const ModalAceptarPedido = ({sendModalVisible}) => {
+export const ModalScreenAcceptPedido = ({sendModalVisible}) => {
   return (
     <View style={styles.modalView}>
 
@@ -33,7 +33,7 @@ export const ModalAceptarPedido = ({sendModalVisible}) => {
     </View>
   );}
 
-export const ModalEliminarPedido = ({sendModalVisible}) => {
+export const ModalScreenDeletePedido = ({sendModalVisible}) => {
   return (
     <View style={styles.modalView}>
 

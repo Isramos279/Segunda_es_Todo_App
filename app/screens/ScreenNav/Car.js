@@ -1,68 +1,49 @@
 import { useState, useEffect } from "react";
 import theme from "../../theme/theme";
 import { Button } from "@rneui/themed";
-import { StyleSheet, Text, View,FlatList,Modal,TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, Text, View,FlatList} from 'react-native';
 import { HeadbarCar } from "../../PruebaComponents/Headbar";
 import { MostrarProducto } from "../../Components/Products/CarProducts";
 import { consultarTest } from "../../Services/ProductosSrv";
 import LinearGradient from "react-native-linear-gradient";
-import { ModalAceptarPedido, ModalEliminarPedido } from "../../Components/Modals";
 import { UsersPoints } from "../../Components/User/UserData";
+import { ModalReddeemProduct, ModalDeleteProduct } from "../../Components/Products/ModalCar";
+
 
 export const CarScreen  = ({navigation}) =>{
     const [productos,setProductos]=useState([])
+    /* Boolean const that use to Shows or hide Modals Views */
     const [modalCanjearVisible, setModalCanjearVisible] = useState(false);
     const [modalCancelarVisible, setModalCancelarVisible] = useState(false);
     
+     /* Function that allow Changes the const the View State of the Modals */
+    const ReceiveModalStateCanjear = (modalCanjearVisible) => {setModalCanjearVisible(modalCanjearVisible); };
+    const ReceiveModalStateCancelar = (modalCancelarVisible) => {setModalCancelarVisible(modalCancelarVisible);};
 
     useEffect(()=>{
         recuperarProductos();
     },[]);
 
-    const recuperarProductos=()=>{
-        consultarTest(setProductos);
-    }
+    const recuperarProductos=()=>{consultarTest(setProductos);}
 
-    const ReceiveModalStateCanjear = (modalCanjearVisible) => {
-        setModalCanjearVisible(modalCanjearVisible);
-      };
-
-      const ReceiveModalStateCancelar = (modalCanjearVisible) => {
-        setModalCancelarVisible(modalCanjearVisible);
-      };
 
     return( 
     <View style={styles.container}>
+        
+        {/* Modal of "Canjear-Buton" and "Delete Product-Button" */}
+        <View>
+            <ModalReddeemProduct
+                modalCanjearVisible   = {modalCanjearVisible}
+                sendModalVisible      = {ReceiveModalStateCanjear}
+            />
+            <ModalDeleteProduct
+                modalCancelarVisible  = {modalCancelarVisible}
+                sendModalVisible      = {ReceiveModalStateCancelar}
+            />
+        </View>
+
         {/* Encabezado */}
         <HeadbarCar/>
-            
-        <Modal
-            animationType="none"
-            transparent={true}
-            visible={modalCanjearVisible}
-            onRequestClose={() => {setModalCanjearVisible(!modalCanjearVisible);}}
-        >
-            <TouchableWithoutFeedback onPress={() => setModalCanjearVisible(!modalCanjearVisible)}>
-                <View style={[styles.centeredView, { backgroundColor: 'rgba(0,0,0, 0.3)' }]}>
-                    <ModalAceptarPedido sendModalVisible={ReceiveModalStateCanjear}/>
-                </View>
-            </TouchableWithoutFeedback>
-
-        </Modal>
-
-        <Modal
-            animationType="none"
-            transparent={true}
-            visible={modalCancelarVisible}
-            onRequestClose={() => {setModalCancelarVisible(!modalCancelarVisible);}}
-        >
-            <TouchableWithoutFeedback onPress={() => setModalCancelarVisible(!modalCancelarVisible)}>
-                <View style={[styles.centeredView, { backgroundColor: 'rgba(0,0,0, 0.3)' }]}>
-                    <ModalEliminarPedido sendModalVisible={ReceiveModalStateCancelar}/>
-                </View>
-            </TouchableWithoutFeedback>
-
-        </Modal>
 
         {/* Body's Screen */}
         <View style={styles.body}>
@@ -127,9 +108,6 @@ export const CarScreen  = ({navigation}) =>{
                     </View>
                 </View>
             </View>
-
-            
-            
         </View>
     </View>)
 }
@@ -193,11 +171,4 @@ const styles = StyleSheet.create({
         fontFamily: theme.fonts.text,
         fontSize: theme.fontSize.carButtons,
     },
-
-    // Modal
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
 });

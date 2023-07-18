@@ -1,7 +1,6 @@
 import theme from "../../../theme/theme";
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
 import { HeadbarUser } from "../../../PruebaComponents/Headbar";
-import { UserCard } from '../../../PruebaComponents/UserCard';
 import { ButtonBotUser } from '../../../PruebaComponents/ButtonBot';
 import { Button } from '@rneui/themed'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -31,7 +30,7 @@ export const UserScreen = () => {
                     source={Cover}
                 >
                     <View>
-                        <UsersPoints />
+                        <UsersPoints paddVert={6}/>
                     </View>
                 </ImageBackground>
 

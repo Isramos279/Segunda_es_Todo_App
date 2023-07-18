@@ -4,14 +4,30 @@ import { HeadbarGroup } from '../../../PruebaComponents/Headbar'
 import theme from "../../../theme/theme";
 import { UserGroupCard } from '../../../PruebaComponents/GroupCard';
 import { Button } from '@rneui/themed';
-
-
-
+import {ModalShareGroup, ModalLeaveGroup} from '../../../Components/Groups/ModalsGroups'
+import { useState} from "react";
 
 export const Groups = ({navigation}) => {
+    /* Boolean const that use to Shows or hide Modals Views */
+    const [modalShareGroup, setModalShareGroup] = useState(false);
+    const [modalLeaveGroup, setLeaveGroup] = useState(false);
+
+     /* Function that allow Changes the const the View State of the Modals */
+    const ReciveModalShareGroup  = (modalShareGroup) => {setModalShareGroup(modalShareGroup)}
+    const ReciveModalLeaveGroup  = (modalLeaveGroup) => {setLeaveGroup(modalLeaveGroup)}
 
     return (
         <View style={styles.container}>
+            
+            <ModalShareGroup
+                sendModalShareVisible={ReciveModalShareGroup}
+                modalShareGroup={modalShareGroup}
+            />
+
+            <ModalLeaveGroup
+                sendModalLeaveGroupVisible = {ReciveModalLeaveGroup}
+                modalLeaveGroup       = {modalLeaveGroup}
+            />
 
             <View style={styles.head}>
                 <HeadbarGroup />
@@ -22,8 +38,8 @@ export const Groups = ({navigation}) => {
             <View style={styles.body}>
 
                 <View style={styles.ButtonContainer}>
-                    <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button} >Invitar</Button>
-                    <Button color={theme.colors.redSegunda} buttonStyle={styles.button}>Salir del grupo</Button>
+                    <Button color={theme.colors.orangeSegunda}  buttonStyle={styles.button} onPress={()=>{setModalShareGroup(true)}}>Invitar</Button>
+                    <Button color={theme.colors.redSegunda}     buttonStyle={styles.button} onPress={()=>{setLeaveGroup(true)}}>Salir del grupo</Button>
                 </View>
 
                 <View style={styles.textGroup}>

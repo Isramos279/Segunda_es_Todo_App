@@ -1,44 +1,60 @@
-
 import { StyleSheet, Text, View,ScrollView, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { HeadbarGroup } from '../../../PruebaComponents/Headbar'
 import theme from "../../../theme/theme";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { GroupCard } from '../../../PruebaComponents/GroupCard';
 import { Button } from '@rneui/themed';
-import {ModalGrupos } from '../../../Components/Groups/ModalsGroups';
+import {ModalCreateNewGroup, ModalJoinGroup } from '../../../Components/Groups/ModalsGroups';
 
 export const ListGroups = ({ navigation }) => {
-    const [modalCrearGrupo, setModalCrearGrupo] = useState(false);
-    const [modalShareGroup, setModalShareGroup] = useState(false);
-    const [nombreGrupo, setNombreGrupo] = useState(false);
+    /* Declarate Function and Const for Modal´s Funcion */
 
+        /* Boolean const that use to Shows or hide Modals Views */
+        const [modalCrearGrupo, setModalCrearGrupo] = useState(false);
+        const [modalShareGroup, setModalShareGroup] = useState(false);
+        const [modalJoinGrupo, setModalJoinGrupo]   = useState(false);
 
-    const ReceiveModalCrearGrupo = (modalCrearGrupo) => {
-        setModalCrearGrupo(modalCrearGrupo);
-      };
+        /*Strings const that Use for TextInputs */
+        const [nombreGrupo, setNombreGrupo] = useState(false);
+        const [GroupsCode, setGroupsCode]   = useState(false);
 
-      const ReciveNombreGrupo =(nombreGrupo) =>{
-        setNombreGrupo(nombreGrupo)
-      }
-      
-      const ReciveModalShareGroup =(modalShareGroup) =>{
-        setModalShareGroup(modalShareGroup)
-      }
+        /* Function that allow Changes the const the View State of the Modals */
+        const ReceiveModalCrearGrupo = (modalCrearGrupo) => {setModalCrearGrupo(modalCrearGrupo)}
+        const ReciveModalShareGroup  = (modalShareGroup) => {setModalShareGroup(modalShareGroup)}
+        const ReciveModalJoinGroup   = (modalJoinGrupo)  => {setModalJoinGrupo(modalJoinGrupo)}
+        
+        /* Function that allow Changes the TextInput const of the Modals */
+        const ReciveNombreGrupo =(nombreGrupo) => {setNombreGrupo(nombreGrupo)}
+        const ReciveGroupsCode =(GroupsCode)   => {setGroupsCode(GroupsCode)}
 
-      
+    /*--- This part of code is made by Enrique Pérez S ---*/
+
 
       return (
         <View style={styles.container}>
+        
+        {/*---    Use of the Modal Componentes    ---*/}
 
-            <ModalGrupos
+            {/* Call to Component for the "Create New Group" Button */}
+            <ModalCreateNewGroup
                 sendModalVisible={ReceiveModalCrearGrupo} 
+                modalVisibleCrearGrupo={modalCrearGrupo}
                 sendNombreGrupo={ReciveNombreGrupo} 
                 nombreGrupo={nombreGrupo}
                 sendPressButton={ReciveModalShareGroup}
-                modalCrearGrupo={modalCrearGrupo}
                 sendModalShareVisible={ReciveModalShareGroup}
                 modalShareGroup={modalShareGroup}
             />
+
+            {/* Call to Component for the "Join Group" Button */}
+            <ModalJoinGroup
+                sendModalVisible = {ReciveModalJoinGroup}
+                modalJoinGroup   = {modalJoinGrupo}
+                sendGroupsCode   = {ReciveGroupsCode}
+                GroupsCode       = {GroupsCode}
+                sendPressButton  = {ReciveModalJoinGroup}
+            /> 
+        {/*--- This part of code is made by Enrique Pérez S --- */}
 
             <View style={styles.head}>
                 <HeadbarGroup />
@@ -70,7 +86,7 @@ export const ListGroups = ({ navigation }) => {
 
                 <View style={styles.ButtonContainer}>
                     <Button color={theme.colors.blackSegunda} buttonStyle={styles.button} onPress={()=>{setModalCrearGrupo(true)}}>Crear grupo Nuevo</Button>
-                    <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button}>Unirse a un grupo</Button>
+                    <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button} onPress={()=>{setModalJoinGrupo(true)}}>Unirse a un grupo</Button>
                 </View>
 
             </View>

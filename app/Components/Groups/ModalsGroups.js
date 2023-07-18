@@ -1,121 +1,162 @@
-import { StyleSheet, Text, View, Modal, TouchableWithoutFeedback} from 'react-native';
-import { Button } from "@rneui/themed";
-import { TextInput } from "react-native-paper";
-import theme from '../../theme/theme';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet,View, Modal, TouchableWithoutFeedback} from 'react-native';
+import { 
+    ModalScreenCreateGroup,
+    ModalScreenShareCodeGroup,
+    ModalScreenEnterGroupsCode,
+    ModalScreenLeaveGroup
+} from './IndividualGroupsModals';
+
+/* CODE EXPLANATION 
+
+    -sendModalVisible/sendModalShareVisible:                 *Recive a Function that changes the state of a boolean const.
+    -modalVisibleCrearGrupo/modalShareGroup/modalJoinGroup:  *Recive a boolean const that determine if the Modal is visible or not
+    -sendNombreGrupo:                                        *Recive a Function that changes the state of a string const use for the TextInput changes.
+    -nombreGrupo:                                            *Recive a String const that is show in TextInput and allow repaint the Screen
+    -sendPressButton:                                        *Recive a Function that will be execute on a Modal View Button
+
+Author's name in the file footer
+ */
 
 
-export const ModalGrupos = ({sendModalVisible, modalCrearGrupo, sendNombreGrupo, nombreGrupo, sendPressButton, sendModalShareVisible, modalShareGroup}) =>{
+/* Component that call the Modal "Create Group" and "Share Group" when is necesary */
+export const ModalCreateNewGroup = (
+    {
+        /* Modal Create New Group Parameters*/
+        sendModalVisible, modalVisibleCrearGrupo, sendNombreGrupo, nombreGrupo, sendPressButton,
+        /* Modal Share Link of the New Group Parameters*/
+        sendModalShareVisible, modalShareGroup
+    }
+    ) =>{
     return(
         <View>
+
             <Modal
                 animationType="none"
                 transparent={true}
-                visible={modalCrearGrupo}
-                onRequestClose={() => {sendModalVisible(!modalCrearGrupo);}}
+                visible={modalVisibleCrearGrupo}
+                onRequestClose={() => {sendModalVisible(!modalVisibleCrearGrupo);}}
             >
-                <TouchableWithoutFeedback onPress={() => sendModalVisible(!modalCrearGrupo)}>
+                {/* Close the modal when the user clicks outside of it */}
+                <TouchableWithoutFeedback onPress={() => sendModalVisible(!modalVisibleCrearGrupo)}>
                     <View style={styles.centeredView}>
-                        <ModalCreateGroup 
+                        {/* Call to Modal "Create Group" and pass the parameters that is declarete in other file*/}
+                        <ModalScreenCreateGroup
                         sendModalVisible={sendModalVisible} 
                         sendNombreGrupo={sendNombreGrupo} 
                         nombreGrupo={nombreGrupo}
                         sendPressButton={sendPressButton}
                         />
                     </View>
+
+                </TouchableWithoutFeedback> 
+
+            </Modal>
+
+            <ModalShareGroup
+                sendModalShareVisible = {sendModalShareVisible}
+                modalShareGroup       = {modalShareGroup}
+            />
+
+        </View>
+    )
+}
+
+/* Component that call the Modal "Enter Groups Code" when is necesary */
+export const ModalJoinGroup = (
+    {
+        /* Modal Join Group */
+        sendModalVisible, modalJoinGroup, sendGroupsCode, GroupsCode, sendPressButton
+    }
+    ) =>{
+    return(
+        <View>
+            {/* Declaration of the Modal  */}
+            <Modal
+                animationType="none"
+                transparent={true}
+                visible={modalJoinGroup}
+                onRequestClose={() => {sendModalVisible(!modalJoinGroup);}}
+            >
+                {/* Close the modal when the user clicks outside of it */}
+                <TouchableWithoutFeedback onPress={() => sendModalVisible(!modalJoinGroup)}>
+
+                    <View style={styles.centeredView}>
+                        {/* Call to Modal Enter Groups Code and pass the parameters that is declarete in other file*/}
+                        <ModalScreenEnterGroupsCode 
+                            sendModalVisible = {sendModalVisible}
+                            sendGroupsCode   = {sendGroupsCode} 
+                            GroupsCode       = {GroupsCode} 
+                            sendPressButton  = {sendPressButton}
+                            />
+                    </View>
+
                 </TouchableWithoutFeedback> 
             </Modal>
 
+        </View>
+    )
+}
+
+/* Component that call the Modal "Enter Groups Code" when is necesary */
+export const ModalShareGroup = (
+    {
+        /* Modal Share Group */
+        sendModalShareVisible, modalShareGroup
+    }
+    ) =>{
+    return(
+        <View>
+            {/* Declaration of the Modal  */}
             <Modal
                 animationType="none"
                 transparent={true}
                 visible={modalShareGroup}
                 onRequestClose={() => {sendModalShareVisible(!modalShareGroup);}}
             >
+                {/* Close the modal when the user clicks outside of it */}
                 <TouchableWithoutFeedback onPress={() => sendModalShareVisible(!modalShareGroup)}>
                     <View style={styles.centeredView}>
-                        <ModalShareGroup  sendModalVisible={sendModalShareVisible} />
+                        {/* Call to Modal "Share Group" and pass the parameters that is declarete in other file*/}
+                        <ModalScreenShareCodeGroup  sendModalVisible={sendModalShareVisible} />
                     </View>
+
                 </TouchableWithoutFeedback> 
+
             </Modal>
+
         </View>
     )
 }
 
-export const ModalCreateGroup   = ({sendModalVisible, sendNombreGrupo, nombreGrupo, sendPressButton}) => {
-    return (
-        <View style={styles.modalView}>
-        
-            <View style={styles.header}>
-                <Text style={[styles.textHeader,styles.textStyle]}>Ingresa el nombre del grupo:</Text>
-            </View>
-
-            <TextInput  
-                label="Nombre del grupo"
-                value={nombreGrupo}
-                onChangeText={sendNombreGrupo}
-                mode="outlined"
-                style={styles.entradaNombre}
-                outlineStyle={styles.marcoEntradaCodigo}
-            />
-
-            <View style={styles.buttons}>
-                <Button
-                title='Siguiente'
-                titleStyle={styles.tittleButton}
-                buttonStyle={[styles.buttonStyleCreateGroup,{backgroundColor: theme.colors.orangeSegunda}]}
-                onPress={()=>{
-                    sendModalVisible(false)
-                    sendPressButton(true)
-                }}
-                />
-            </View>
-            
-        </View>
-    );
-}
-
-export const ModalShareGroup   = ({sendModalVisible}) => {
-    return (
-        <View style={styles.modalView}>
-        
-            <View style={styles.header}>
-                <Text style={[styles.textHeader,styles.textStyle]}>Ingresa el nombre del grupo:</Text>
-            </View>
-
-            <View style={styles.body}>
-                <Text style={[styles.modalText,styles.textStyle]}>Invita a tus panas por whatsapp o copia el código y reenvialo.</Text>
-
-                <View style={styles.shareCodigo}>
-                    <View style={styles.codigo}>
-                        <Text style={[styles.textStyle,styles.codigoText]}> SAKDJO1289SJD</Text>
+export const ModalLeaveGroup = (
+    {
+        /* Modal Share Group */
+        sendModalLeaveGroupVisible, modalLeaveGroup
+    }
+    ) =>{
+    return(
+        <View>
+            {/* Declaration of the Modal  */}
+            <Modal
+                animationType="none"
+                transparent={true}
+                visible={modalLeaveGroup}
+                onRequestClose={() => {sendModalLeaveGroupVisible(!modalLeaveGroup);}}
+            >
+                {/* Close the modal when the user clicks outside of it */}
+                <TouchableWithoutFeedback onPress={() => sendModalLeaveGroupVisible(!modalLeaveGroup)}>
+                    <View style={styles.centeredView}>
+                        {/* Call to Modal "Share Group" and pass the parameters that is declarete in other file*/}
+                        <ModalScreenLeaveGroup  sendModalVisible={sendModalLeaveGroupVisible} />
                     </View>
-                    <View style={styles.copyIcon}>
-                        <Icon name='copy' size={24} type='antdesing' color="black"/>
-                    </View>
-                </View>
 
-                <View style={styles.ShareIcon}>
-                        <Icon name='whatsapp' size={70} type='antdesing' color="green"/>
-                </View>
+                </TouchableWithoutFeedback> 
 
-            </View>
+            </Modal>
 
-            <View style={styles.buttons}>
-                <Button
-                title='Listo'
-                titleStyle={styles.tittleButton}
-                buttonStyle={[styles.buttonStyleCreateGroup,{backgroundColor: theme.colors.orangeSegunda}]}
-                onPress={()=>{
-                    sendModalVisible(false)
-                }}
-                />
-            </View>
-            
         </View>
-    );
+    )
 }
-
 
 const styles = StyleSheet.create({
     centeredView: {
@@ -123,84 +164,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0,0,0, 0.3)'
-      },
-    modalView: {
-        backgroundColor: 'white',
-        borderRadius: 10,
-        justifyContent: 'space-between',
-        width: theme.ViewSize.width,
-      },
-      header: {
-        alignItems: 'center',
-        backgroundColor: theme.colors.blackSegunda,
-        paddingVertical: 12,
-        paddingHorizontal: 10,
-        borderTopEndRadius: 10,
-        borderTopStartRadius: 10,
-      },
-      textHeader:{
-        fontSize: 18,
-        color: theme.colors.whiteSegunda
-      },
-      body:{
-        paddingTop: 10,
-      },
-      textStyle: {
-        fontFamily: theme.fonts.text
-      },
-      modalText: {
-        marginBottom: 15,
-        textAlign: 'center',
-        color: theme.colors.blackSegunda,
-        paddingHorizontal: 30,  
-      },
-      buttons:{
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingBottom: 15,
-      },
-      tittleButton:{
-        fontSize: theme.fontSize.modalButtons,
-        fontFamily: theme.fonts.text,
-      },
+    },
+    });
 
-      //Modal Crear Grupo:
-      entradaNombre:{
-        marginHorizontal: 35,
-        marginTop: 20,
-        height: 35
-      },
-      buttonStyleCreateGroup:{
-        borderRadius: 10,
-        marginTop: 25,
-        width: 130,
-      },
-      marcoEntradaCodigo:{
-        borderRadius: 10,
-        borderColor:theme.colors.greySegunda,
-    },
-    //ShareGroup:
-    shareCodigo:{
-        flexDirection: 'row',
-        paddingHorizontal: 15,
-    },
-    codigo:{
-        flex: 4,
-        backgroundColor:theme.colors.greySegunda,
-        borderRadius: 5,
-        height: 30,
-        justifyContent: 'center'
-    },
-    codigoText:{
-        fontSize: theme.fontSize.body,
-        paddingLeft: 3,
-    },
-    copyIcon:{
-        flex: 1,
-        alignItems: 'center'
-    },
-    ShareIcon:{
-        marginTop: 20,
-        alignItems: 'center',
-    },
-});
+/* All Code in this file has been written by Enrique Pérez S */
