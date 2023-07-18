@@ -1,16 +1,44 @@
 
-import { StyleSheet, Text, View, Image, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,ScrollView, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { HeadbarGroup } from '../../../PruebaComponents/Headbar'
 import theme from "../../../theme/theme";
+import { useState, useEffect } from "react";
 import { GroupCard } from '../../../PruebaComponents/GroupCard';
 import { Button } from '@rneui/themed';
-
-
+import {ModalGrupos } from '../../../Components/Groups/ModalsGroups';
 
 export const ListGroups = ({ navigation }) => {
-    return (
+    const [modalCrearGrupo, setModalCrearGrupo] = useState(false);
+    const [modalShareGroup, setModalShareGroup] = useState(false);
+    const [nombreGrupo, setNombreGrupo] = useState(false);
+
+
+    const ReceiveModalCrearGrupo = (modalCrearGrupo) => {
+        setModalCrearGrupo(modalCrearGrupo);
+      };
+
+      const ReciveNombreGrupo =(nombreGrupo) =>{
+        setNombreGrupo(nombreGrupo)
+      }
+      
+      const ReciveModalShareGroup =(modalShareGroup) =>{
+        setModalShareGroup(modalShareGroup)
+      }
+
+      
+
+      return (
         <View style={styles.container}>
 
+            <ModalGrupos
+                sendModalVisible={ReceiveModalCrearGrupo} 
+                sendNombreGrupo={ReciveNombreGrupo} 
+                nombreGrupo={nombreGrupo}
+                sendPressButton={ReciveModalShareGroup}
+                modalCrearGrupo={modalCrearGrupo}
+                sendModalShareVisible={ReciveModalShareGroup}
+                modalShareGroup={modalShareGroup}
+            />
 
             <View style={styles.head}>
                 <HeadbarGroup />
@@ -41,7 +69,7 @@ export const ListGroups = ({ navigation }) => {
                 </ScrollView>
 
                 <View style={styles.ButtonContainer}>
-                    <Button color={theme.colors.blackSegunda} buttonStyle={styles.button} >Crear grupo Nuevo</Button>
+                    <Button color={theme.colors.blackSegunda} buttonStyle={styles.button} onPress={()=>{setModalCrearGrupo(true)}}>Crear grupo Nuevo</Button>
                     <Button color={theme.colors.orangeSegunda} buttonStyle={styles.button}>Unirse a un grupo</Button>
                 </View>
 
@@ -96,9 +124,6 @@ const styles = StyleSheet.create({
     ButtonContainer: {
         marginTop: 30,
     },
-
-
-
 });
 
 
