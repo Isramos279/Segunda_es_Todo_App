@@ -13,7 +13,7 @@ import { cerrarSesion, RecuperarUsuario, } from "./app/Services/AutenticacionSrv
 import { ScreenHome } from './app/screens/ScreenNav/Home';
 import { CuponScreen } from "./app/screens/ScreenNav/Cupon";
 import { CarScreen } from "./app/screens/ScreenNav/Car";
-import { UserScreen } from './app/screens/ScreenNav/User';
+import { UserScreen } from './app/screens/ScreenNav/Users/User';
 import theme from "./app/theme/theme";
 import { ListGroups } from './app/screens/ScreenNav/Groups/ListGroups'
 import { Groups } from './app/screens/ScreenNav/Groups/Groups'
