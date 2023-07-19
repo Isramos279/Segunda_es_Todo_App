@@ -27,7 +27,7 @@ export const ButtonBot = () => {
 export const ButtonBotUser = () => {
     return (
         <View>
-            <Card containerStyle={{ borderRadius: 10, }}>
+            <Card containerStyle={{ borderRadius: 10,  }}>
                 <View style={styles.UserButton}>
                     <TouchableOpacity onPress={() => console.log('Botón presionado')} style={styles.styleUserButton}>
                         <View style={styles.icon}> 
@@ -95,6 +95,10 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        
+        
+        
 
     },
     img: {

@@ -152,11 +152,10 @@ const styles = StyleSheet.create({
     resumeProducts:{
         flex: 1,
         borderTopColor: theme.colors.greySegunda,
-        borderTopWidth: 1,
+      
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: 10,
-        paddingTop: 5,
+       
     },
     buttonMoreProducts:{
         backgroundColor: theme.colors.blackSegunda,

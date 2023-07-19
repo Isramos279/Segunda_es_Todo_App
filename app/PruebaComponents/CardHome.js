@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontStyle: 'normal',
         fontWeight: "400",
+        paddingTop: 5,
 
     },
     Descripcion: {
