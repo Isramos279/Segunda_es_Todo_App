@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingBottom: 5,
     fontWeight: 'bold',
+    fontFamily: theme.fonts.textBold,
 
 
   },
@@ -92,11 +93,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingBottom: 5,
+
   },
   buttonBot: {
     marginTop: 28,
     flex: 0.5,
-    
     
   }
 

@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
         marginRight: 10,
         width: 157,
         height: 48,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        shadowColor: 'black',
 
     },
     text: {
@@ -97,9 +98,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         
-        
-        
-
     },
     img: {
         width: 40,
