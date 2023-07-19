@@ -40,7 +40,7 @@ export const SupGroups = ({ navigation }) => {
                 </View>
 
                 <View style={styles.message}>
-                    <Text style={{ fontFamily: theme.fonts.text, fontSize: 21, paddingVertical: 20, paddingHorizontal: 30 }}>
+                    <Text style={{ fontFamily: theme.fonts.text, fontSize: 21, alignItems: 'center' }}>
                         Con cuanto acolitaras hoy?
                     </Text>
                 </View>
@@ -132,7 +132,9 @@ const styles = StyleSheet.create({
     message: {
         flex: 0.14,
         backgroundColor: '#FDD844',
-        borderRadius: 10
+        borderRadius: 10,
+        justifyContent: 'center',
+        paddingHorizontal: 10,
     },
     buttonContainer: {
         flex: 0.35,

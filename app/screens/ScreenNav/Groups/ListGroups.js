@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     },
     ButtonContainer: {
         marginTop: 30,
+        alignItems: 'center',
     },
 });
 

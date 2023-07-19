@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     },
     ButtonContainer: {
         flexDirection: 'row',
+        justifyContent: 'center'
 
 
     },
@@ -114,6 +115,7 @@ const styles = StyleSheet.create({
     },
     textGroup: {
         marginBottom: 25,
+        alignItems: 'center'
     },
     buttonBot: {
         flex: 0.35,

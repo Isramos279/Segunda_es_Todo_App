@@ -38,7 +38,7 @@ const theme = {
     normal: "normal",
   },
   separation:{
-    headSeparation : heightScreen * 0.03,
+    headSeparation : heightScreen * 0.045,
     horizontalSeparation : widthScreen * 0.055,
     userHorizontalSeparation: widthScreen * 0.035,
   },

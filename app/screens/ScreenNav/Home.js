@@ -94,7 +94,9 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   buttonBot: {
+    marginTop: 28,
     flex: 0.5,
+    alignItems: 'center'
   }
 
 
