@@ -1,0 +1,32 @@
+{
+    "__collections__": {
+        "grupos": {
+            "grupo_id_1": {
+                "nombre": "Nombre del grupo",
+                "codigo": "Código del grupo",
+                "descripcion": "Descripción del grupo",
+                "usuarioAdmin": {
+                    "idUsuario": "ID del usuario admin",
+                    "nombre": "Nombre del usuario admin",
+                    "urlImagen": "URL de la imagen del usuario admin",
+                    "puntosAportados": 0
+                },
+                "puntosTotales": 0,
+                "miembros": {
+                    "miembro_id_1": {
+                        "idUsuario": "ID del miembro 1",
+                        "nombre": "Nombre del miembro 1",
+                        "urlImagen": "URL de la imagen del miembro 1",
+                        "puntosAportados": 0
+                    },
+                    "miembro_id_2": {
+                        "idUsuario": "ID del miembro 2",
+                        "nombre": "Nombre del miembro 2",
+                        "urlImagen": "URL de la imagen del miembro 2",
+                        "puntosAportados": 0
+                    }
+                }
+            }
+        }
+    }
+}

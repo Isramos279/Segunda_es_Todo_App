@@ -1,0 +1,5 @@
+//Exportar
+npx -p node-firestore-import-export firestore-export -a keySETbd.json -b SETbd.json
+
+//Importar
+npx -p node-firestore-import-export firestore-import -a keySETbd.json -b SETbd.json
